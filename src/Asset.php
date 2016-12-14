@@ -5,6 +5,8 @@
  * @category   JST
  * @package    Asset
  * @subpackage Asset
+ * @author     volter9
+ * @author     QsmaPL
  * @author     Josantonius - info@josantonius.com
  * @copyright  Copyright (c) 2016 JST PHP Framework
  * @license    https://opensource.org/licenses/MIT - The MIT License (MIT)
