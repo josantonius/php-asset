@@ -17,7 +17,7 @@
 
 namespace Josantonius\Asset;
 
-use Josantonius\Asset\Exception\AssetException;
+# use Josantonius\Asset\Exception\AssetException;
 
 /**
  * Load assets resources.
