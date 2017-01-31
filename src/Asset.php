@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 /**
  * PHP library for save CSS and JS files to be displayed in same place.
  * 
@@ -10,9 +10,9 @@
  * @author     Josantonius - info@josantonius.com
  * @copyright  Copyright (c) 2016 JST PHP Framework
  * @license    https://opensource.org/licenses/MIT - The MIT License (MIT)
- * @version    1.0.0
+ * @version    1.1.0
  * @link       https://github.com/Josantonius/PHP-Asset
- * @since      File available since 1.0.0 - Update: 2016-12-19
+ * @since      File available since 1.0.0 - Update: 2017-01-30
  */
 
 namespace Josantonius\Asset;
@@ -46,7 +46,7 @@ class Asset {
      * @param string|array $files    → file or files to add
      * @param string       $template → template type
      */
-    protected static function resource($files, string $template) {
+    protected static function resource($files, $template) {
 
         $template = self::$templates[$template];
 
