@@ -2,15 +2,11 @@
 /**
  * PHP library for save CSS and JS files to be displayed in same place.
  * 
- * @category   JST
- * @package    Asset
- * @subpackage AssetTest
  * @author     Josantonius - info@josantonius.com
  * @copyright  Copyright (c) 2016 JST PHP Framework
  * @license    https://opensource.org/licenses/MIT - The MIT License (MIT)
- * @version    1.1.0
  * @link       https://github.com/Josantonius/PHP-Asset
- * @since      File available since 1.0.0 - Update: 2017-01-30
+ * @since      File available since 1.0.0 - Update: 2017-02-17
  */
 
 namespace Josantonius\Asset\Tests;
@@ -28,13 +24,11 @@ class AssetTest {
      * Add one css file.
      *
      * @since 1.0.0
-     *
-     * @return string → css file with html tags
      */
     public static function testAddOneCssFile() {
 
         Asset::css(
-            'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
+            'https://maxcdn.bootstrapcdn.com/font-awesome.min.css'
         );
     }
 
@@ -42,13 +36,11 @@ class AssetTest {
      * Add multiple css files.
      *
      * @since 1.0.0
-     *
-     * @return string → css files with html tags
      */
     public static function testAddMultipleCssFile() {
 
         Asset::css(array(
-            'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
+            'https://maxcdn.bootstrapcdn.com/font-awesome.min.css',
             'https://fonts.googleapis.com/icon?family=Material+Icons'
         ));
     }
@@ -57,8 +49,6 @@ class AssetTest {
      * Add one js file.
      *
      * @since 1.0.0
-     *
-     * @return string → js file with html tags
      */
     public static function testAddOneJsFile() {
 
@@ -68,17 +58,55 @@ class AssetTest {
     }
 
     /**
+     * Add js file specifying attribute.
+     *
+     * @since 1.1.1
+     */
+    public static function testAddOneJsFileAttr() {
+
+        Asset::js(
+            'https://code.jquery.com/jquery-2.2.3.min.js', 'async'
+        );
+    }
+
+    /**
      * Add multiple js files.
      *
      * @since 1.0.0
-     *
-     * @return string → js files with html tags
      */
     public static function testAddMultipleJsFile() {
 
         Asset::js(array(
             'https://code.jquery.com/jquery-2.2.3.min.js',
-            'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'
+            'https://maxcdn.bootstrapcdn.com/bootstrap.min.js'
         ));
+    }
+
+    /**
+     * Add multiple js files specifying different attributes.
+     *
+     * @since 1.1.1
+     */
+    public static function testAddMultipleJsFileAttr() {
+
+        Asset::js(array(
+            'async' => 'https://code.jquery.com/jquery-2.2.3.min.js',
+            'defer' => 'https://maxcdn.bootstrapcdn.com/bootstrap.min.js'
+        ));
+    }
+
+    /**
+     * Add multiple js files specifying a same attribute.
+     *
+     * @since 1.1.1
+     */
+    public static function testAddMultipleJsFileSameAttr() {
+
+        $files = [
+            'https://code.jquery.com/jquery-2.2.3.min.js',
+            'https://maxcdn.bootstrapcdn.com/bootstrap.min.js'
+        ];
+        
+        Asset::js($files, 'async');
     }
 }

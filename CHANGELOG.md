@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.1.1 - 2017-02-17
+* Added `Josantonius\Asset\Tests\AssetTest::testAddOneJsFileAttr()` method.
+* Added `Josantonius\Asset\Tests\AssetTest::testAddMultipleJsFileAttr()` method.
+* Added `Josantonius\Asset\Tests\AssetTest::testAddMultipleJsFileSameAttr()` method.
+* Added `$attr` parameter in `Josantonius\Asset\Asset::resource()` method.
+* Added `$attr` parameter in `Josantonius\Asset\Asset::js()` method.
+
 ## 1.1.0 - 2017-01-30
 * Compatible with PHP 5.6 or higher.
 

@@ -2,15 +2,11 @@
 /**
  * PHP library for save CSS and JS files to be displayed in same place.
  * 
- * @category   JST
- * @package    Asset
- * @subpackage AssetException
  * @author     Josantonius - info@josantonius.com
  * @copyright  Copyright (c) 2016 JST PHP Framework
  * @license    https://opensource.org/licenses/MIT - The MIT License (MIT)
- * @version    1.1.0
  * @link       https://github.com/Josantonius/PHP-Asset
- * @since      File available since 1.0.0 - Update: 2017-01-30
+ * @since      File available since 1.0.0 - Update: 2017-02-17
  */
 
 namespace Josantonius\Asset\Exception;

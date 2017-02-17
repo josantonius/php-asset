@@ -97,6 +97,9 @@ AssetTest::testAddOneCssFile();
 AssetTest::testAddMultipleCssFile();
 AssetTest::testAddOneJsFile();
 AssetTest::testAddMultipleJsFile();
+AssetTest::testAddOneJsFileAttr();
+AssetTest::testAddMultipleJsFileAttr();
+AssetTest::testAddMultipleJsFileSameAttr();
 ```
 
 ### Manejador de excepciones
