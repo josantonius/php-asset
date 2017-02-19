@@ -32,7 +32,7 @@ class Asset {
      */
     protected static $templates = [
         'js'  => '<script%s src="%s" type="text/javascript"></script>',
-        'css' => '<link href="%s" rel="stylesheet" type="text/css">',
+        'css' => '<link%s href="%s" rel="stylesheet" type="text/css">',
     ];
 
     /**
