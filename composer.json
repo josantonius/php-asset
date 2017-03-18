@@ -15,11 +15,14 @@
     "authors": [
         {
             "name":     "Josantonius",
-            "email":    "info@josantonius.com",
-            "homepage": "https://github.com/josantonius",
+            "email":    "hello@josantonius.com",
+            "homepage": "https://josantonius.com",
             "role":     "Developer"
         }
     ],
+    "support": {
+        "source": "https://github.com/josantonius/php-asset"
+    },
     "config": {
         "preferred-install": "dist"
     },
