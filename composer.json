@@ -1,6 +1,6 @@
 {
     "name":        "josantonius/asset",
-    "version":     "1.1.1",
+    "version":     "1.1.2",
     "type":        "library",
     "description": "PHP library for save CSS and JS files to be displayed in same place.",
     "keywords": [
@@ -20,8 +20,10 @@
             "role":     "Developer"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable" : true,
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
     "require": {
         "php" : ">=5.6"
     },

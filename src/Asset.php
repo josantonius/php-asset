@@ -4,12 +4,11 @@
  * 
  * @author     volter9
  * @author     QsmaPL
- * @author     Josantonius
- * @author     Josantonius - info@josantonius.com
- * @copyright  Copyright (c) 2016 JST PHP Framework
+ * @author     Josantonius - hello@josantonius.com
+ * @copyright  Copyright (c) 2016 - 2017
  * @license    https://opensource.org/licenses/MIT - The MIT License (MIT)
  * @link       https://github.com/Josantonius/PHP-Asset
- * @since      File available since 1.0.0 - Update: 2017-02-17
+ * @since      1.0.0
  */
 
 namespace Josantonius\Asset;
