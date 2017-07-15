@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.1.3 - 2017-07-15
+* Deleted `Josantonius\Asset\Exception\AssetException` class.
+* Deleted `Josantonius\Asset\Exception\Exceptions` abstract class.
+* Deleted `Josantonius\Asset\Exception\AssetException->__construct()` method.
+
 ## 1.1.2 - 2017-03-18
 * Some files were excluded from download and comments and readme files were updated.
 
