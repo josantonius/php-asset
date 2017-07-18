@@ -4,7 +4,7 @@
 
 [English version](README.md)
 
-Librería PHP para cargar archivos CSS/JS desde diferentes lugares y mostrarlos en un mismo lugar.
+Biblioteca PHP para cargar correctamente archivos CSS/JS desde diferentes ubicaciones y unificarlos dentro de la etiqueta head.
 
 ---
 
@@ -24,7 +24,7 @@ Librería PHP para cargar archivos CSS/JS desde diferentes lugares y mostrarlos 
 <p align="center"><strong>Echa un vistazo al código</strong></p>
 
 <p align="center">
-  <a href="" title="Echa un vistazo al código">
+  <a href="https://youtu.be/K6hdRg00YUs" title="Echa un vistazo al código">
   	<img src="https://raw.githubusercontent.com/Josantonius/PHP-Algorithm/master/resources/youtube-thumbnail.jpg">
   </a>
 </p>
@@ -53,7 +53,7 @@ Esta biblioteca es soportada por versiones de PHP 5.6 o superiores y es compatib
 
 ### Cómo empezar y ejemplos
 
-Para utilizar esta librería, simplemente:
+Para utilizar esta biblioteca, simplemente:
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -62,7 +62,7 @@ use Josantonius\Asset\Asset;
 ```
 ### Métodos disponibles
 
-Métodos disponibles en esta librería:
+Métodos disponibles en esta biblioteca:
 
 ```php
 Asset::resource();
@@ -71,7 +71,7 @@ Asset::css();
 ```
 ### Uso
 
-Ejemplo de uso para esta librería:
+Ejemplo de uso para esta biblioteca:
 
 ```php
 <?php
@@ -107,7 +107,7 @@ $loader->addPsr4('Josantonius\\Asset\\Tests\\', __DIR__ . '/vendor/josantonius/a
 
 use Josantonius\Asset\Tests\AssetTest;
 ```
-Métodos de prueba disponibles en esta librería:
+Métodos de prueba disponibles en esta biblioteca:
 
 ```php
 AssetTest::testAddOneCssFile();
