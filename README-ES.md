@@ -1,6 +1,6 @@
 # PHP Asset library
 
-[![Latest Stable Version](https://poser.pugx.org/josantonius/asset/v/stable)](https://packagist.org/packages/josantonius/asset) [![Total Downloads](https://poser.pugx.org/josantonius/asset/downloads)](https://packagist.org/packages/josantonius/asset) [![Latest Unstable Version](https://poser.pugx.org/josantonius/asset/v/unstable)](https://packagist.org/packages/josantonius/asset) [![License](https://poser.pugx.org/josantonius/asset/license)](https://packagist.org/packages/josantonius/asset)
+[![Latest Stable Version](https://poser.pugx.org/josantonius/asset/v/stable)](https://packagist.org/packages/josantonius/asset) [![Total Downloads](https://poser.pugx.org/josantonius/asset/downloads)](https://packagist.org/packages/josantonius/asset) [![Latest Unstable Version](https://poser.pugx.org/josantonius/asset/v/unstable)](https://packagist.org/packages/josantonius/asset) [![License](https://poser.pugx.org/josantonius/asset/license)](https://packagist.org/packages/josantonius/asset) [![Build Status](http://img.shields.io/travis/josantonius/php-asset.svg)](http://travis-ci.org/Josantonius/PHP-Asset)
 
 [English version](README.md)
 
@@ -60,15 +60,16 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Josantonius\Asset\Asset;
 ```
+
 ### Métodos disponibles
 
 Métodos disponibles en esta biblioteca:
 
 ```php
-Asset::resource();
 Asset::js();
 Asset::css();
 ```
+
 ### Uso
 
 Ejemplo de uso para esta biblioteca:
@@ -89,35 +90,21 @@ Asset::js(array(
 ));
 
 /* 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<script src="https://code.jquery.com/jquery-2.2.3.min.js" type="text/javascript"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 */
 ```
 
 ### Tests 
 
-Para utilizar la clase de [pruebas](tests), simplemente:
+Para ejecutar las [pruebas](tests/Asset) simplemente:
 
-```php
-<?php
-$loader = require __DIR__ . '/vendor/autoload.php';
+    $ git clone https://github.com/Josantonius/PHP-Asset.git
+    
+    $ cd PHP-Asset
 
-$loader->addPsr4('Josantonius\\Asset\\Tests\\', __DIR__ . '/vendor/josantonius/asset/tests');
-
-use Josantonius\Asset\Tests\AssetTest;
-```
-Métodos de prueba disponibles en esta biblioteca:
-
-```php
-AssetTest::testAddOneCssFile();
-AssetTest::testAddMultipleCssFile();
-AssetTest::testAddOneJsFile();
-AssetTest::testAddMultipleJsFile();
-AssetTest::testAddOneJsFileAttr();
-AssetTest::testAddMultipleJsFileAttr();
-AssetTest::testAddMultipleJsFileSameAttr();
-```
+    $ phpunit
 
 ### Contribuir
 1. Comprobar si hay incidencias abiertas o abrir una nueva para iniciar una discusión en torno a un fallo o función.
