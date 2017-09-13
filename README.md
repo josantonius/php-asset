@@ -1,6 +1,6 @@
 # PHP Asset library
 
-[![Latest Stable Version](https://poser.pugx.org/josantonius/asset/v/stable)](https://packagist.org/packages/josantonius/asset) [![Total Downloads](https://poser.pugx.org/josantonius/asset/downloads)](https://packagist.org/packages/josantonius/asset) [![Latest Unstable Version](https://poser.pugx.org/josantonius/asset/v/unstable)](https://packagist.org/packages/josantonius/asset) [![License](https://poser.pugx.org/josantonius/asset/license)](https://packagist.org/packages/josantonius/asset) [![Travis](https://travis-ci.org/Josantonius/PHP-Asset.svg)](https://github.com/Josantonius/PHP-Asset)
+[![Latest Stable Version](https://poser.pugx.org/josantonius/asset/v/stable)](https://packagist.org/packages/josantonius/asset) [![Total Downloads](https://poser.pugx.org/josantonius/asset/downloads)](https://packagist.org/packages/josantonius/asset) [![Latest Unstable Version](https://poser.pugx.org/josantonius/asset/v/unstable)](https://packagist.org/packages/josantonius/asset) [![License](https://poser.pugx.org/josantonius/asset/license)](https://packagist.org/packages/josantonius/asset) [![Travis](https://travis-ci.org/Josantonius/PHP-Asset.svg)](https://travis-ci.org/Josantonius/PHP-Asset)
 
 [Versión en español](README-ES.md)
 
@@ -86,7 +86,7 @@ Asset::js(array(
 
 ### Tests 
 
-To run [tests](tests/Asset) simply:
+To run [tests](tests/Asset/test) simply:
 
     $ git clone https://github.com/Josantonius/PHP-Asset.git
     
