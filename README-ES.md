@@ -97,9 +97,10 @@ Para ejecutar las [pruebas](tests/Asset/Test) simplemente:
 
     $ phpunit
 
-## ☑ Tareas pendientes
+### ☑ Tareas pendientes
 
 - [x] Completar tests
+- [ ] Mejorar la documentación
 
 ### Contribuir
 

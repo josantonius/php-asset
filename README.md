@@ -95,9 +95,10 @@ To run [tests](tests/Asset/Test) simply:
 
     $ phpunit
 
-## ☑ TODO
+### ☑ TODO
 
 - [x] Create tests
+- [ ] Improve documentation
 
 ### Contribute
 
