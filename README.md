@@ -86,7 +86,7 @@ Asset::js(array(
 
 ### Tests 
 
-To run [tests](tests/Asset/test) simply:
+To run [tests](tests/Asset/Test) simply:
 
     $ git clone https://github.com/Josantonius/PHP-Asset.git
     

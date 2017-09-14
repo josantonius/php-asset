@@ -88,7 +88,7 @@ Asset::js(array(
 
 ### Tests 
 
-Para ejecutar las [pruebas](tests/Asset/test) simplemente:
+Para ejecutar las [pruebas](tests/Asset/Test) simplemente:
 
     $ git clone https://github.com/Josantonius/PHP-Asset.git
     
