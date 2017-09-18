@@ -1,14 +1,14 @@
-<?php 
+<?php
 /**
- * Library for handling hooks.
+ * PHP library for save CSS and JS files to be displayed in same place.
  * 
- * @author     Josantonius  - hello@josantonius.com
- * @copyright  Copyright (c) 2017
+ * @author     Josantonius - hello@josantonius.com
+ * @copyright  Copyright (c) 2016 - 2017
  * @license    https://opensource.org/licenses/MIT - The MIT License (MIT)
- * @link       https://github.com/Josantonius/PHP-Hook
- * @since      1.0.6
+ * @link       https://github.com/Josantonius/PHP-Asset
+ * @since      1.1.4
  */
 
 $loader = require __DIR__ . '/../src/bootstrap.php';
 
-$loader->add('Josantonius\Hook\Test', __DIR__);
+$loader->add('Josantonius\Asset\Test', __DIR__);
