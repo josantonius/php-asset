@@ -30,19 +30,19 @@ This library is supported by `PHP versions 5.6` or higher and is compatible with
 
 The preferred way to install this extension is through [Composer](http://getcomposer.org/download/).
 
-To install `PHP Asset library`, simply:
+To install **PHP Asset library**, simply:
 
     $ composer require Josantonius/Asset
 
-The previous command will only install the necessary files, if you prefer to `download the entire source code` you can use:
+The previous command will only install the necessary files, if you prefer to **download the entire source code** you can use:
 
     $ composer require Josantonius/Asset --prefer-source
 
-You can also `clone the complete repository` with Git:
+You can also **clone the complete repository** with Git:
 
 	$ git clone https://github.com/Josantonius/PHP-Asset.git
 
-Or `install it manually`:
+Or **install it manually**:
 
 [Download Asset.php](https://raw.githubusercontent.com/Josantonius/PHP-Asset/master/src/Asset.php):
 
