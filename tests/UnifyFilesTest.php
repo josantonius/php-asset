@@ -21,15 +21,6 @@ use PHPUnit\Framework\TestCase;
 final class UnifyFilesTest extends TestCase
 {
     /**
-     * Asset object.
-     *
-     * @since 1.1.5
-     *
-     * @var object
-     */
-    protected $Asset;
-
-    /**
      * Assets url.
      *
      * @since 1.1.5
@@ -61,8 +52,6 @@ final class UnifyFilesTest extends TestCase
         $this->assetsUrl = 'https://' . $url;
 
         $this->assetsPath = $_SERVER['DOCUMENT_ROOT'];
-
-        $this->Asset = new Asset;
     }
 
     /**
@@ -75,7 +64,7 @@ final class UnifyFilesTest extends TestCase
     public function testUnify()
     {
         $this->assertTrue(
-            $this->Asset->unify('UniqueID', $this->assetsUrl . 'min/')
+            Asset::unify('UniqueID', $this->assetsUrl . 'min/')
         );
     }
 
@@ -89,7 +78,7 @@ final class UnifyFilesTest extends TestCase
     public function testUnifySpecifyingDifferentUrlPaths()
     {
         $this->assertTrue(
-            $this->Asset->unify('UniqueID', [
+            Asset::unify('UniqueID', [
                 'styles'  => $this->assetsUrl . 'min/',
                 'scripts' => $this->assetsUrl . 'min/',
             ])
@@ -106,7 +95,7 @@ final class UnifyFilesTest extends TestCase
     public function testUnifyAndMinify()
     {
         $this->assertTrue(
-            $this->Asset->unify('UniqueID', $this->assetsUrl . 'min/', true)
+            Asset::unify('UniqueID', $this->assetsUrl . 'min/', true)
         );
     }
 
@@ -120,7 +109,7 @@ final class UnifyFilesTest extends TestCase
     public function testUnifyAndMinifySpecifyingDifferentUrlPaths()
     {
         $this->assertTrue(
-            $this->Asset->unify('UniqueID', [
+            Asset::unify('UniqueID', [
                 'styles'  => $this->assetsUrl . 'min/',
                 'scripts' => $this->assetsUrl . 'min/',
 
@@ -138,7 +127,7 @@ final class UnifyFilesTest extends TestCase
     public function testAddStylesAndScripts()
     {
         $this->assertTrue(
-            $this->Asset->add('style', [
+            Asset::add('style', [
                 'name'    => 'CustomStyle',
                 'url'     => $this->assetsUrl . 'css/custom.css',
                 'version' => '1.1.3',
@@ -146,14 +135,14 @@ final class UnifyFilesTest extends TestCase
         );
 
         $this->assertTrue(
-            $this->Asset->add('style', [
+            Asset::add('style', [
                 'name'    => 'DefaultStyle',
                 'url'     => $this->assetsUrl . 'css/style.css',
             ])
         );
 
         $this->assertTrue(
-            $this->Asset->add('script', [
+            Asset::add('script', [
                 'name'    => 'DefaultScript',
                 'url'     => $this->assetsUrl . 'js/script.js',
                 'version' => '1.1.3',
@@ -162,7 +151,7 @@ final class UnifyFilesTest extends TestCase
         );
 
         $this->assertTrue(
-            $this->Asset->add('script', [
+            Asset::add('script', [
                 'name'    => 'CustomScript',
                 'url'     => $this->assetsUrl . 'js/custom.js',
                 'version' => '1.1.3',
@@ -171,7 +160,7 @@ final class UnifyFilesTest extends TestCase
         );
 
         $this->assertTrue(
-            $this->Asset->add('script', [
+            Asset::add('script', [
                 'name'    => 'Default',
                 'url'     => $this->assetsUrl . 'js/script.js',
                 'version' => '1.1.3',
@@ -180,7 +169,7 @@ final class UnifyFilesTest extends TestCase
         );
 
         $this->assertTrue(
-            $this->Asset->add('script', [
+            Asset::add('script', [
                 'name'    => 'Custom',
                 'url'     => $this->assetsUrl . 'js/custom.js',
                 'version' => '1.1.3',
@@ -199,27 +188,27 @@ final class UnifyFilesTest extends TestCase
     public function testIfStylesAndScriptsAddedCorrectly()
     {
         $this->assertTrue(
-            $this->Asset->isAdded('style', 'CustomStyle')
+            Asset::isAdded('style', 'CustomStyle')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('style', 'DefaultStyle')
+            Asset::isAdded('style', 'DefaultStyle')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'DefaultScript')
+            Asset::isAdded('script', 'DefaultScript')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'CustomScript')
+            Asset::isAdded('script', 'CustomScript')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'Default')
+            Asset::isAdded('script', 'Default')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'Custom')
+            Asset::isAdded('script', 'Custom')
         );
     }
 
@@ -237,17 +226,17 @@ final class UnifyFilesTest extends TestCase
 
         $this->assertContains(
             "<link rel='stylesheet' href='https://jst.com/min/$style'>",
-            $this->Asset->outputStyles()
+            Asset::outputStyles()
         );
 
         $this->assertContains(
             "<script src='https://jst.com/min/$script'></script>",
-            $this->Asset->outputScripts('header')
+            Asset::outputScripts('header')
         );
 
         $this->assertContains(
             "<script src='https://jst.com/min/$script'></script>",
-            $this->Asset->outputScripts('footer')
+            Asset::outputScripts('footer')
         );
     }
 

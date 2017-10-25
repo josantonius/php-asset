@@ -21,15 +21,6 @@ use PHPUnit\Framework\TestCase;
 final class StylesTest extends TestCase
 {
     /**
-     * Asset object.
-     *
-     * @since 1.1.5
-     *
-     * @var object
-     */
-    protected $Asset;
-
-    /**
      * Assets url.
      *
      * @since 1.1.5
@@ -47,13 +38,9 @@ final class StylesTest extends TestCase
      */
     public function setUp()
     {
-        parent::setUp();
-
         $url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
         $this->assetsUrl = 'https://' . $url;
-
-        $this->Asset = new Asset;
     }
 
     /**
@@ -66,7 +53,7 @@ final class StylesTest extends TestCase
     public function testAddStyle()
     {
         $this->assertTrue(
-            $this->Asset->add('style', [
+            Asset::add('style', [
                 'name' => 'style-first',
                 'url'  => $this->assetsUrl . 'css/style.css',
             ])
@@ -83,7 +70,7 @@ final class StylesTest extends TestCase
     public function testAddStyleWithVersion()
     {
         $this->assertTrue(
-            $this->Asset->add('style', [
+            Asset::add('style', [
                 'name'    => 'style-second',
                 'url'     => $this->assetsUrl . 'css/style.css',
                 'version' => '1.0.0'
@@ -101,7 +88,7 @@ final class StylesTest extends TestCase
     public function testAddStyleAddingAllParams()
     {
         $this->assertTrue(
-            $this->Asset->add('style', [
+            Asset::add('style', [
                 'name'    => 'style-third',
                 'url'     => $this->assetsUrl . 'css/custom.css',
                 'version' => '1.1.3'
@@ -119,7 +106,7 @@ final class StylesTest extends TestCase
     public function testAddStyleWithoutName()
     {
         $this->assertFalse(
-            $this->Asset->add('style', [
+            Asset::add('style', [
                 'url'  => $this->assetsUrl . 'css/unknown.css',
                 'attr' => 'defer',
             ])
@@ -136,7 +123,7 @@ final class StylesTest extends TestCase
     public function testAddStyleWithoutUrl()
     {
         $this->assertFalse(
-            $this->Asset->add('style', [
+            Asset::add('style', [
                 'name' => 'unknown',
                 'attr' => 'defer',
             ])
@@ -153,15 +140,15 @@ final class StylesTest extends TestCase
     public function testIfStylesAddedCorrectly()
     {
         $this->assertTrue(
-            $this->Asset->isAdded('style', 'style-first')
+            Asset::isAdded('style', 'style-first')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('style', 'style-second')
+            Asset::isAdded('style', 'style-second')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('style', 'style-third')
+            Asset::isAdded('style', 'style-third')
         );
     }
 
@@ -176,7 +163,7 @@ final class StylesTest extends TestCase
     {
 
         $this->assertTrue(
-            $this->Asset->remove('style', 'style-first')
+            Asset::remove('style', 'style-first')
         );
     }
 
@@ -190,7 +177,7 @@ final class StylesTest extends TestCase
     public function testValidationAfterDeletion()
     {
         $this->assertFalse(
-            $this->Asset->isAdded('style', 'style-first')
+            Asset::isAdded('style', 'style-first')
         );
     }
 
@@ -203,7 +190,7 @@ final class StylesTest extends TestCase
      */
     public function testOutputStyles()
     {
-        $styles = $this->Asset->outputStyles();
+        $styles = Asset::outputStyles();
 
         $this->assertContains(
             "<link rel='stylesheet' href='https://jst.com/css/custom.css'>",
@@ -226,7 +213,7 @@ final class StylesTest extends TestCase
     public function testOutputWhenNotStylesLoaded()
     {
         $this->assertFalse(
-            $this->Asset->outputStyles()
+            Asset::outputStyles()
         );
     }
 }
