@@ -153,7 +153,7 @@ class Asset
         $template = self::$templates['script'];
         $scripts  = self::$data['script'][$place];
 
-        foreach ($scripts as $script => $value) {
+        foreach ($scripts as $key => $value) {
             $output .= sprintf(
                 $template,
                 $value['attr'],
@@ -183,7 +183,6 @@ class Asset
         } elseif (isset(self::$data[$type]['footer'][$name])) {
             return true;
         }
-
         return false;
     }
 
@@ -192,9 +191,9 @@ class Asset
      *
      * @since 1.1.5
      *
-     * @param string  $id     → unique identifier for unified file
-     * @param mixed   $params → path urls
-     * @param boolean $minify → minimize file content
+     * @param string  $uniqueID → unique identifier for unified file
+     * @param mixed   $params   → path urls
+     * @param boolean $minify   → minimize file content
      *
      * @return boolean true
      */
@@ -226,7 +225,6 @@ class Asset
             unset(self::$data[$type]['footer'][$name]);
             return true;
         }
-
         return false;
     }
 
@@ -389,7 +387,6 @@ class Asset
             self::$files[$filepath] = $actual;
             return self::$changes = true;
         }
-
         return false;
     }
 
@@ -410,7 +407,6 @@ class Asset
                 return self::$changes = true;
             }
         }
-
         return false;
     }
 
@@ -456,7 +452,6 @@ class Asset
                 }
                 $data .= file_get_contents($path);
             }
-
             $data = (self::$minify) ? self::compressFiles($data) : $data;
 
             self::saveFile($minFile, $data);
