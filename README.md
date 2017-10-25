@@ -30,7 +30,7 @@ This library is supported by `PHP versions 5.6` or higher and is compatible with
 
 The preferred way to install this extension is through [Composer](http://getcomposer.org/download/).
 
-To install **PHP Asset library**, simply:
+To install `PHP Asset library`, simply:
 
     $ composer require Josantonius/Asset
 

@@ -30,7 +30,7 @@ Esta clase es soportada por versiones de `PHP 5.6` o superiores y es compatible 
 
 La mejor forma de instalar esta extensión es a través de [Composer](http://getcomposer.org/download/).
 
-Para instalar **PHP Asset library**, simplemente escribe:
+Para instalar `PHP Asset library`, simplemente escribe:
 
     $ composer require Josantonius/Asset
 
