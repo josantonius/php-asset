@@ -1,17 +1,17 @@
 # PHP Asset library
 
-[![Latest Stable Version](https://poser.pugx.org/josantonius/asset/v/stable)](https://packagist.org/packages/josantonius/asset) [![Total Downloads](https://poser.pugx.org/josantonius/asset/downloads)](https://packagist.org/packages/josantonius/asset) [![Latest Unstable Version](https://poser.pugx.org/josantonius/asset/v/unstable)](https://packagist.org/packages/josantonius/asset) [![License](https://poser.pugx.org/josantonius/asset/license)](https://packagist.org/packages/josantonius/asset) [![Travis](https://travis-ci.org/Josantonius/PHP-Asset.svg)](https://travis-ci.org/Josantonius/PHP-Asset)
+[![Latest Stable Version](https://poser.pugx.org/josantonius/Asset/v/stable)](https://packagist.org/packages/josantonius/Asset) [![Latest Unstable Version](https://poser.pugx.org/josantonius/Asset/v/unstable)](https://packagist.org/packages/josantonius/Asset) [![License](https://poser.pugx.org/josantonius/Asset/license)](LICENSE) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d93b5c9ef2784bc7a4d1577f0835c41d)](https://www.codacy.com/app/Josantonius/PHP-Asset?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Josantonius/PHP-Asset&amp;utm_campaign=Badge_Grade) [![Total Downloads](https://poser.pugx.org/josantonius/Asset/downloads)](https://packagist.org/packages/josantonius/Asset) [![Travis](https://travis-ci.org/Josantonius/PHP-Asset.svg)](https://travis-ci.org/Josantonius/PHP-Asset) [![PSR2](https://img.shields.io/badge/PSR-2-1abc9c.svg)](http://www.php-fig.org/psr/psr-2/) [![PSR4](https://img.shields.io/badge/PSR-4-9b59b6.svg)](http://www.php-fig.org/psr/psr-4/) [![CodeCov](https://codecov.io/gh/Josantonius/PHP-Asset/branch/master/graph/badge.svg)](https://codecov.io/gh/Josantonius/PHP-Asset)
 
 [Versión en español](README-ES.md)
 
-PHP library for save CSS and JS files to be displayed in same place.
+PHP library for handling styles and scripts; Add, minify, unify and print.
 
 ---
 
-- [Installation](#installation)
 - [Requirements](#requirements)
-- [Quick Start and Examples](#quick-start-and-examples)
+- [Installation](#installation)
 - [Available Methods](#available-methods)
+- [Quick Start](#quick-start)
 - [Usage](#usage)
 - [Tests](#tests)
 - [TODO](#-todo)
@@ -22,83 +22,272 @@ PHP library for save CSS and JS files to be displayed in same place.
 
 ---
 
+### Requirements
+
+This library is supported by `PHP versions 5.6` or higher and is compatible with `HHVM versions 3.0` or higher.
+
 ### Installation
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+The preferred way to install this extension is through [Composer](http://getcomposer.org/download/).
 
-To install PHP Asset library, simply:
+To install `PHP Asset library`, simply:
 
     $ composer require Josantonius/Asset
 
-The previous command will only install the necessary files, if you prefer to download the entire source code (including tests, vendor folder, exceptions not used, docs...) you can use:
+The previous command will only install the necessary files, if you prefer to `download the entire source code` you can use:
 
     $ composer require Josantonius/Asset --prefer-source
 
-Or you can also clone the complete repository with Git:
+You can also `clone the complete repository` with Git:
 
-	$ git clone https://github.com/Josantonius/PHP-Asset.github.com
+	$ git clone https://github.com/Josantonius/PHP-Asset.git
 
-### Requirements
+Or `install it manually`:
 
-This library is supported by PHP versions 5.6 or higher and is compatible with HHVM versions 3.0 or higher.
+[Download Asset.php](https://raw.githubusercontent.com/Josantonius/PHP-Asset/master/src/Asset.php):
 
-### Quick Start and Examples
+    $ wget https://raw.githubusercontent.com/Josantonius/PHP-Asset/master/src/Asset.php
 
-To use this class, simply:
+[Download Json.php](https://raw.githubusercontent.com/Josantonius/PHP-Json/master/src/Json.php):
 
-```php
-require __DIR__ . '/vendor/autoload.php';
+    $ wget https://raw.githubusercontent.com/Josantonius/PHP-Json/master/src/Json.php
 
-use Josantonius\Asset\Asset;
-```
 ### Available Methods
 
 Available methods in this library:
 
+`Add scripts or styles:`
+
 ```php
-Asset::js();
-Asset::css();
+Asset::add($type, $data);
 ```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $type | 'script' or 'style' | string | Yes | |
+
+| Attribute | key | Description | Type | Required | Default
+| --- | --- | --- | --- | --- | --- |
+| $data | | Settings | array | Yes | |
+|  | name | Unique ID | string | Yes | |
+|  | url | Url to file | string | Yes | |
+|  | version | Version | string | No | false |
+|  | footer | **Only for scripts** - Attach in footer | boolean | No | true |
+|  | attr | **Only for scripts** - Attribute (defer/sync) | string | No | |
+
+**# Return** (boolean)
+
+`Check if a particular style or script has been added:`
+
+```php
+Asset::isAdded($type, $name);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $type | 'script' or 'style' | string | Yes | |
+| $name | Unique ID | string | Yes | |
+
+**# Return** (boolean)
+
+`Remove script or style:`
+
+```php
+Asset::remove($type, $name);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $type | 'script' or 'style' | string | Yes | |
+| $name | Unique ID | string | Yes | |
+
+**# Return** (boolean true)
+
+`Sets whether to merge the content of files into a single file:`
+
+```php
+Asset::unify($id, $params, $minify);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $id | Unique identifier for unified file | string | Yes | |
+| $params | Path urls | mixed | Yes | |
+| $minify | Minimize file content | boolean | No | false |
+
+**# Return** (boolean true)
+
+`Output stylesheet:`
+
+```php
+Asset::outputStyles($output);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $output | Output for styles | string | No | '' |
+
+**# Return** (string|false) → Output or false
+
+`Output scripts:`
+
+```php
+Asset::outputScripts($place, $output);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $place | 'header' or 'footer' | string | Yes | |
+| $output | Output for scripts | string | No | '' |
+
+**# Return** (string|false) → Output or false
+
+### Quick Start
+
+To use this class with `Composer`:
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+use Josantonius\Asset\Asset;
+```
+
+Or If you installed it `manually`, use it:
+
+```php
+require_once __DIR__ . '/Asset.php';
+require_once __DIR__ . '/Json.php';
+
+use Josantonius\Asset\Asset;
+```
+
 ### Usage
 
 Example of use for this library:
 
+**Add styles:**
+
 ```php
-<?php
-require __DIR__ . '/vendor/autoload.php';
+Asset::add('style', [
+    'name' => 'style-first',
+    'url'  => 'http://josantonius.com/css/style.css',
+]);
 
-use Josantonius\Asset\Asset;
+Asset::add('style', [
+    'name'    => 'style-second',
+    'url'     => 'http://josantonius.com/css/custom.css',
+    'version' => '1.1.1'
+]);
+```
 
-Asset::css(
-    'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
-);
+**Add scripts:**
 
-Asset::js(array(
-    'https://code.jquery.com/jquery-2.2.3.min.js',
-    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'
-));
+```php
+Asset::add('script', [
+    'name' => 'script-first',
+    'url'  => 'http://josantonius.com/js/script.js',
+]);
 
-/* 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-*/
+Asset::add('script', [
+    'name'    => 'script-second',
+    'url'     => 'http://josantonius.com/js/custom.js',
+    'attr'    => 'defer',
+    'version' => '1.1.3',
+    'footer'  => false
+]);
+```
+
+**Check if resources have been added correctly:**
+
+```php
+Asset::isAdded('script', 'script-first');  // true
+Asset::isAdded('style', 'style-first');    // true
+```
+
+**Delete added resources:**
+
+```php
+Asset::remove('style', 'style-first')    // true
+Asset::remove('script', 'script-first'); // true
+```
+
+**Unify:**
+
+```php
+Asset::unify('UniqueID', 'http://josantonius.com/min/');
+```
+
+**Unify and minify:**
+
+```php
+Asset::unify('UniqueID', 'http://josantonius.com/min/', true);
+```
+
+**Unify specifying different url paths for styles and scripts:**
+
+```php
+Asset::unify('UniqueID', [
+
+    'styles'  => 'http://josantonius.com/min/css/',
+    'scripts' => 'http://josantonius.com/min/js/'
+]);
+```
+
+**Unify and minify specifying different url paths for styles and scripts:**
+
+```php
+Asset::unify('UniqueID', [
+
+    'styles'  => 'http://josantonius.com/min/css/',
+    'scripts' => 'http://josantonius.com/min/js/'
+
+], true);
+```
+
+**Output styles:**
+
+```php
+echo Asset::outputStyles();
+```
+
+**Output footer scripts:**
+
+```php
+echo Asset::outputScripts('footer');
+```
+
+**Output header scripts:**
+
+```php
+echo Asset::outputScripts('header');
 ```
 
 ### Tests 
 
-To run [tests](tests/Asset/Test) simply:
+To run [tests](tests) you just need [Composer](http://getcomposer.org/download/) and to execute the following:
 
     $ git clone https://github.com/Josantonius/PHP-Asset.git
     
     $ cd PHP-Asset
 
-    $ phpunit
+    $ composer install
+
+Run unit tests with [PHPUnit](https://phpunit.de/):
+
+    $ composer phpunit
+
+Run [PSR2](http://www.php-fig.org/psr/psr-2/) code standard tests with [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer):
+
+    $ composer phpcs
+
+Run all previous tests:
+
+    $ composer tests
 
 ### ☑ TODO
 
 - [x] Create tests
-- [ ] Improve documentation
+- [x] Improve documentation
 
 ### Contribute
 

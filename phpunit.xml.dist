@@ -9,17 +9,27 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="tests/bootstrap.php"
->
+         bootstrap="vendor/autoload.php">
+
+    <php>
+        <server name='SERVER_PROTOCOL' value='HTTP/1.1' />
+        <server name='HTTPS'           value='on' />
+        <server name='SERVER_NAME'     value='jst.com/' />
+        <server name='REQUEST_URI'     value='' />
+        <server name='DOCUMENT_ROOT'   value='tests/assets/' />
+        <server name='SERVER_PORT'     value='80' />
+        <server name='HTTP_REFERER'    value='https://www.google.es/' />
+    </php>
+
     <testsuites>
-        <testsuite name="Asset Test Suite">
-            <directory>tests/Asset</directory>
+        <testsuite name="Test Suite">
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>src/Asset</directory>
+            <directory>src</directory>
         </whitelist>
     </filter>
 </phpunit>

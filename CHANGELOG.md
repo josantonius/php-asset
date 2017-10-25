@@ -1,5 +1,79 @@
 # CHANGELOG
 
+## 1.1.5 - 2017-10-24
+
+* Implemented `PSR-4 autoloader standard` from all library files.
+
+* Implemented `PSR-2 coding standard` from all library PHP files.
+
+* Implemented `PHPCS` to ensure that PHP code complies with `PSR2` code standards.
+
+* Implemented `Codacy` to automates code reviews and monitors code quality over time.
+
+* Implemented `Codecov` to coverage reports.
+
+* Added `Asset/phpcs.ruleset.xml` file.
+
+* Deleted `Asset/src/bootstrap.php` file.
+
+* Deleted `Asset/tests/bootstrap.php` file.
+
+* Deleted `Asset/vendor` folder.
+
+* Deleted `Josantonius\Asset\Test\AssetTest` class.
+
+* Added `Asset/tests/css/style.css` file.
+* Added `Asset/tests/css/custom.css` file.
+
+* Added `Asset/tests/js/script.js` file.
+* Added `Asset/tests/js/custom.js` file.
+
+* Deleted `Josantonius\Asset\Asset::resource()` method.
+* Deleted `Josantonius\Asset\Asset::js()` method.
+* Deleted `Josantonius\Asset\Asset::css()` method.
+
+* Added `Josantonius\Asset\ScriptsTest` class.
+* Added `Josantonius\Asset\ScriptsTest->setUp()` method.
+* Added `Josantonius\Asset\ScriptsTest->testAddScript()` method.
+* Added `Josantonius\Asset\ScriptsTest->testAddScriptWithDeferAttribute()` method.
+* Added `Josantonius\Asset\ScriptsTest->testAddScriptWithAsyncAttribute()` method.
+* Added `Josantonius\Asset\ScriptsTest->testAddScriptInFooter()` method.
+* Added `Josantonius\Asset\ScriptsTest->testAddScriptInHeader()` method.
+* Added `Josantonius\Asset\ScriptsTest->testAddScriptAddingAllParams()` method.
+* Added `Josantonius\Asset\ScriptsTest->testAddScriptWithoutName()` method.
+* Added `Josantonius\Asset\ScriptsTest->testAddScriptWithoutUrl()` method.
+* Added `Josantonius\Asset\ScriptsTest->testIfScriptsAddedCorrectly()` method.
+* Added `Josantonius\Asset\ScriptsTest->testRemoveAddedScripts()` method.
+* Added `Josantonius\Asset\ScriptsTest->testValidationAfterDeletion()` method.
+* Added `Josantonius\Asset\ScriptsTest->testOutputFooterScripts()` method.
+* Added `Josantonius\Asset\ScriptsTest->testOutputHeaderScripts()` method.
+* Added `Josantonius\Asset\ScriptsTest->testOutputWhenNotFooterScriptsLoaded()` method.
+* Added `Josantonius\Asset\ScriptsTest->testOutputWhenNotHeaderScriptsLoaded()` method.
+
+* Added `Josantonius\Asset\StylesTest` class.
+* Added `Josantonius\Asset\StylesTest->setUp()` method.
+* Added `Josantonius\Asset\StylesTest->testAddStyle()` method.
+* Added `Josantonius\Asset\StylesTest->testAddStyleWithVersion()` method.
+* Added `Josantonius\Asset\StylesTest->testAddStyleAddingAllParams()` method.
+* Added `Josantonius\Asset\StylesTest->testAddStyleWithoutName()` method.
+* Added `Josantonius\Asset\StylesTest->testAddStyleWithoutUrl()` method.
+* Added `Josantonius\Asset\StylesTest->testIfStylesAddedCorrectly()` method.
+* Added `Josantonius\Asset\StylesTest->testRemoveAddedStyles()` method.
+* Added `Josantonius\Asset\StylesTest->testValidationAfterDeletion()` method.
+* Added `Josantonius\Asset\StylesTest->testOutputStyles()` method.
+* Added `Josantonius\Asset\StylesTest->testOutputWhenNotStylesLoaded()` method.
+
+* Added `Josantonius\Asset\UnifyFilesTest` class.
+* Added `Josantonius\Asset\UnifyFilesTest->setUp()` method.
+* Added `Josantonius\Asset\UnifyFilesTest->testUnify()` method.
+* Added `Josantonius\Asset\UnifyFilesTest->testUnifySpecifyingDifferentUrlPaths()` method.
+* Added `Josantonius\Asset\UnifyFilesTest->testUnifyAndMinify()` method.
+* Added `Josantonius\Asset\UnifyFilesTest->testUnifyAndMinifySpecifyingDifferentUrlPaths()` method.
+* Added `Josantonius\Asset\UnifyFilesTest->testAddStylesAndScripts()` method.
+* Added `Josantonius\Asset\UnifyFilesTest->testIfStylesAndScriptsAddedCorrectly()` method.
+* Added `Josantonius\Asset\UnifyFilesTest->testOutputStylesAndScripts()` method.
+* Added `Josantonius\Asset\UnifyFilesTest->testIfUnifiedFilesWasCreated()` method.
+
 ## 1.1.4 - 2017-09-10
 
 * Unit tests supported by `PHPUnit` were added.

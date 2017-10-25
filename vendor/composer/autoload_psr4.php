@@ -9,7 +9,8 @@ return array(
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/type-resolver/src', $vendorDir . '/phpdocumentor/reflection-docblock/src'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
-    'Josantonius\\Asset\\' => array($baseDir . '/src/Asset'),
+    'Josantonius\\Json\\' => array($vendorDir . '/josantonius/json/src/Json'),
+    'Josantonius\\Asset\\' => array($baseDir . '/src', $baseDir . '/tests'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
 );
