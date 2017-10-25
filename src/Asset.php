@@ -124,7 +124,7 @@ class Asset
         $template = self::$templates['style'];
         $styles   = self::$data['style']['header'];
 
-        foreach ($styles as $style => $value) {
+        foreach ($styles as $key => $value) {
             $output .= sprintf(
                 $template,
                 $value['url']
@@ -198,9 +198,9 @@ class Asset
      *
      * @return boolean true
      */
-    public static function unify($id, $params, $minify = false)
+    public static function unify($uniqueID, $params, $minify = false)
     {
-        self::$id     = $id;
+        self::$id     = $uniqueID;
         self::$unify  = $params;
         self::$minify = $minify;
 

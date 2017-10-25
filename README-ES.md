@@ -106,12 +106,12 @@ Asset::remove($type, $name);
 `Unificar el contenido de los archivos en un único archivo:`
 
 ```php
-Asset::unify($id, $params, $minify);
+Asset::unify($uniqueID, $params, $minify);
 ```
 
 | Atributo | Descripción | Tipo | Requerido | Predeterminado
 | --- | --- | --- | --- | --- |
-| $id | Identificador único para el archivo unificado | string | Sí | |
+| $uniqueID | Identificador único para el archivo unificado | string | Sí | |
 | $params | Urls de ruta | mixed | Sí | |
 | $minify | Minimizar el contenido del archivo | boolean | No | false |
 

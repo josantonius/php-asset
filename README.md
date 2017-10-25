@@ -106,12 +106,12 @@ Asset::remove($type, $name);
 `Sets whether to merge the content of files into a single file:`
 
 ```php
-Asset::unify($id, $params, $minify);
+Asset::unify($uniqueID, $params, $minify);
 ```
 
 | Attribute | Description | Type | Required | Default
 | --- | --- | --- | --- | --- |
-| $id | Unique identifier for unified file | string | Yes | |
+| $uniqueID | Unique identifier for unified file | string | Yes | |
 | $params | Path urls | mixed | Yes | |
 | $minify | Minimize file content | boolean | No | false |
 
