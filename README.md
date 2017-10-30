@@ -56,7 +56,7 @@ Or **install it manually**:
 
 Available methods in this library:
 
-### Add scripts or styles:
+### - Add scripts or styles:
 
 ```php
 Asset::add($type, $data);
@@ -77,7 +77,7 @@ Asset::add($type, $data);
 
 **# Return** (boolean)
 
-### Check if a particular style or script has been added:
+### - Check if a particular style or script has been added:
 
 ```php
 Asset::isAdded($type, $name);
@@ -90,7 +90,7 @@ Asset::isAdded($type, $name);
 
 **# Return** (boolean)
 
-### Remove script or style:
+### - Remove script or style:
 
 ```php
 Asset::remove($type, $name);
@@ -103,7 +103,7 @@ Asset::remove($type, $name);
 
 **# Return** (boolean true)
 
-### Sets whether to merge the content of files into a single file:
+### - Sets whether to merge the content of files into a single file:
 
 ```php
 Asset::unify($uniqueID, $params, $minify);
@@ -117,7 +117,7 @@ Asset::unify($uniqueID, $params, $minify);
 
 **# Return** (boolean true)
 
-### Output stylesheet:
+### - Output stylesheet:
 
 ```php
 Asset::outputStyles($output);
@@ -129,7 +129,7 @@ Asset::outputStyles($output);
 
 **# Return** (string|false) → Output or false
 
-### Output scripts:
+### - Output scripts:
 
 ```php
 Asset::outputScripts($place, $output);
@@ -165,7 +165,7 @@ use Josantonius\Asset\Asset;
 
 Example of use for this library:
 
-**Add styles:**
+### - Add styles:
 
 ```php
 Asset::add('style', [
@@ -180,7 +180,7 @@ Asset::add('style', [
 ]);
 ```
 
-**Add scripts:**
+### - Add scripts:
 
 ```php
 Asset::add('script', [
@@ -197,33 +197,33 @@ Asset::add('script', [
 ]);
 ```
 
-**Check if resources have been added correctly:**
+### - Check if resources have been added correctly:
 
 ```php
 Asset::isAdded('script', 'script-first');  // true
 Asset::isAdded('style', 'style-first');    // true
 ```
 
-**Delete added resources:**
+### - Delete added resources:
 
 ```php
 Asset::remove('style', 'style-first')    // true
 Asset::remove('script', 'script-first'); // true
 ```
 
-**Unify:**
+### - Unify:
 
 ```php
 Asset::unify('UniqueID', 'http://josantonius.com/min/');
 ```
 
-**Unify and minify:**
+### - Unify and minify:
 
 ```php
 Asset::unify('UniqueID', 'http://josantonius.com/min/', true);
 ```
 
-**Unify specifying different url paths for styles and scripts:**
+### - Unify specifying different url paths for styles and scripts:
 
 ```php
 Asset::unify('UniqueID', [
@@ -233,7 +233,7 @@ Asset::unify('UniqueID', [
 ]);
 ```
 
-**Unify and minify specifying different url paths for styles and scripts:**
+### - Unify and minify specifying different url paths for styles and scripts:
 
 ```php
 Asset::unify('UniqueID', [
@@ -244,19 +244,19 @@ Asset::unify('UniqueID', [
 ], true);
 ```
 
-**Output styles:**
+### - Output styles:
 
 ```php
 echo Asset::outputStyles();
 ```
 
-**Output footer scripts:**
+### - Output footer scripts:
 
 ```php
 echo Asset::outputScripts('footer');
 ```
 
-**Output header scripts:**
+### - Output header scripts:
 
 ```php
 echo Asset::outputScripts('header');
