@@ -22,15 +22,15 @@ Biblioteca PHP para manejo de estilos y scripts; Añadir, minimizar, unificar e 
 
 ---
 
-### Requisitos
+## Requisitos
 
-Esta clase es soportada por versiones de `PHP 5.6` o superiores y es compatible con versiones de `HHVM 3.0` o superiores.
+Esta clase es soportada por versiones de **PHP 5.6** o superiores y es compatible con versiones de **HHVM 3.0** o superiores.
 
-### Instalación 
+## Instalación 
 
 La mejor forma de instalar esta extensión es a través de [Composer](http://getcomposer.org/download/).
 
-Para instalar `PHP Asset library`, simplemente escribe:
+Para instalar **PHP Asset library**, simplemente escribe:
 
     $ composer require Josantonius/Asset
 
@@ -52,11 +52,11 @@ O **instalarlo manualmente**:
 
     $ wget https://raw.githubusercontent.com/Josantonius/PHP-Json/master/src/Json.php
 
-### Métodos disponibles
+## Métodos disponibles
 
 Métodos disponibles en esta biblioteca:
 
-`Agregar scripts o estilos:`
+### - Agregar scripts o estilos:
 
 ```php
 Asset::add($type, $data);
@@ -77,7 +77,7 @@ Asset::add($type, $data);
 
 **# Return** (boolean)
 
-`Comprobar si se ha añadido un estilo o script en particular:`
+### - Comprobar si se ha añadido un estilo o script en particular:
 
 ```php
 Asset::isAdded($type, $name);
@@ -90,7 +90,7 @@ Asset::isAdded($type, $name);
 
 **# Return** (boolean)
 
-`Eliminar script o estilo:`
+### - Eliminar script o estilo:
 
 ```php
 Asset::remove($type, $name);
@@ -103,7 +103,7 @@ Asset::remove($type, $name);
 
 **# Return** (boolean true)
 
-`Unificar el contenido de los archivos en un único archivo:`
+### - Unificar el contenido de los archivos en un único archivo:
 
 ```php
 Asset::unify($uniqueID, $params, $minify);
@@ -117,7 +117,7 @@ Asset::unify($uniqueID, $params, $minify);
 
 **# Return** (boolean true)
 
-`Salida de hojas de estilos:`
+### - Salida de hojas de estilos:
 
 ```php
 Asset::outputStyles($output);
@@ -129,7 +129,7 @@ Asset::outputStyles($output);
 
 **# Return** (string|false) → Estilos o false
 
-`Salida de hojas de scripts:`
+### - Salida de hojas de scripts:
 
 ```php
 Asset::outputScripts($place, $output);
@@ -142,9 +142,9 @@ Asset::outputScripts($place, $output);
 
 **# Return** (string|false) → Scripts o false
 
-### Cómo empezar
+## Cómo empezar
 
-Para utilizar esta clase con `Composer`:
+Para utilizar esta clase con **Composer**:
 
 ```php
 require __DIR__ . '/vendor/autoload.php';
@@ -152,7 +152,7 @@ require __DIR__ . '/vendor/autoload.php';
 use Josantonius\Asset\Asset;
 ```
 
-Si la instalaste `manualmente`, utiliza:
+Si la instalaste **manualmente**, utiliza:
 
 ```php
 require_once __DIR__ . '/Asset.php';
@@ -161,11 +161,11 @@ require_once __DIR__ . '/Json.php';
 use Josantonius\Asset\Asset;
 ```
 
-### Uso
+## Uso
 
 Ejemplo de uso para esta biblioteca:
 
-**Agregar estilos:**
+### - Agregar estilos:
 
 ```php
 Asset::add('style', [
@@ -180,7 +180,7 @@ Asset::add('style', [
 ]);
 ```
 
-**Agregar scripts:**
+### - Agregar scripts:
 
 ```php
 Asset::add('script', [
@@ -197,33 +197,33 @@ Asset::add('script', [
 ]);
 ```
 
-**Verificar si los recursos se han añadido correctamente:**
+### - Verificar si los recursos se han añadido correctamente:
 
 ```php
 Asset::isAdded('script', 'script-first');  // true
 Asset::isAdded('style', 'style-first');    // true
 ```
 
-**Borrar recursos añadidos:**
+### - Borrar recursos añadidos:
 
 ```php
 Asset::remove('style', 'style-first')    // true
 Asset::remove('script', 'script-first'); // true
 ```
 
-**Unificar:**
+### - Unificar:
 
 ```php
 Asset::unify('UniqueID', 'http://josantonius.com/min/');
 ```
 
-**Unificar y minimizar:**
+### - Unificar y minimizar:
 
 ```php
 Asset::unify('UniqueID', 'http://josantonius.com/min/', true);
 ```
 
-**Unificar indicando diferentes rutas de urls para estilos y scripts:**
+### - Unificar indicando diferentes rutas de urls para estilos y scripts:
 
 ```php
 Asset::unify('UniqueID', [
@@ -233,7 +233,7 @@ Asset::unify('UniqueID', [
 ]);
 ```
 
-**Unificar y minimizar indicando diferentes rutas de urls para estilos y scripts:**
+### - Unificar y minimizar indicando diferentes rutas de urls para estilos y scripts:
 
 ```php
 Asset::unify('UniqueID', [
@@ -244,25 +244,25 @@ Asset::unify('UniqueID', [
 ], true);
 ```
 
-**Imprimir estilos:**
+### - Imprimir estilos:
 
 ```php
 echo Asset::outputStyles();
 ```
 
-**Imprimir los scripts del footer:**
+### - Imprimir los scripts del footer:
 
 ```php
 echo Asset::outputScripts('footer');
 ```
 
-**Imprimir los scripts del header:**
+### - Imprimir los scripts del header:
 
 ```php
 echo Asset::outputScripts('header');
 ```
 
-### Tests 
+## Tests 
 
 Para ejecutar las [pruebas](tests) necesitarás [Composer](http://getcomposer.org/download/) y seguir los siguientes pasos:
 
@@ -284,12 +284,12 @@ Ejecutar todas las pruebas anteriores:
 
     $ composer tests
 
-### ☑ Tareas pendientes
+## ☑ Tareas pendientes
 
 - [x] Completar tests
 - [x] Mejorar la documentación
 
-### Contribuir
+## Contribuir
 
 1. Comprobar si hay incidencias abiertas o abrir una nueva para iniciar una discusión en torno a un fallo o función.
 1. Bifurca la rama del repositorio en GitHub para iniciar la operación de ajuste.
@@ -299,15 +299,15 @@ Ejecutar todas las pruebas anteriores:
 
 Esto está pensado para proyectos grandes y de larga duración.
 
-### Repositorio
+## Repositorio
 
 Los archivos de este repositorio se crearon y subieron automáticamente con [Reposgit Creator](https://github.com/Josantonius/BASH-Reposgit).
 
-### Licensing
+## Licensing
 
 This project is licensed under **MIT license**. See the [LICENSE](LICENSE) file for more info.
 
-### Copyright
+## Copyright
 
 2016 - 2017 Josantonius, [josantonius.com](https://josantonius.com/)
 
