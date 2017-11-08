@@ -8,7 +8,6 @@
  * @link      https://github.com/Josantonius/PHP-Asset
  * @since     1.0.0
  */
-
 namespace Josantonius\Asset;
 
 use Josantonius\Json\Json;
@@ -21,15 +20,6 @@ use Josantonius\Json\Json;
 class Asset
 {
     /**
-     * Unique identifier for unified file.
-     *
-     * @since 1.1.5
-     *
-     * @var string
-     */
-    protected static $id;
-
-    /**
      * Settings to register styles or scripts.
      *
      * @since 1.1.5
@@ -37,6 +27,14 @@ class Asset
      * @var array
      */
     public static $data = [];
+    /**
+     * Unique identifier for unified file.
+     *
+     * @since 1.1.5
+     *
+     * @var string
+     */
+    protected static $id;
 
     /**
      * Files saved information.
@@ -52,7 +50,7 @@ class Asset
      *
      * @since 1.1.5
      *
-     * @var boolean
+     * @var bool
      */
     protected static $changes = false;
 
@@ -61,7 +59,7 @@ class Asset
      *
      * @since 1.1.5
      *
-     * @var string|boolean
+     * @var string|bool
      */
     protected static $unify = false;
 
@@ -70,7 +68,7 @@ class Asset
      *
      * @since 1.1.5
      *
-     * @var boolean
+     * @var bool
      */
     protected static $minify = false;
 
@@ -82,9 +80,8 @@ class Asset
      * @var array → asset templates
      */
     protected static $templates = [
-
         'script' => "<script%s src='%s'></script>\n",
-        'style'  => "<link rel='stylesheet' href='%s'>\n",
+        'style' => "<link rel='stylesheet' href='%s'>\n",
     ];
 
     /**
@@ -101,7 +98,7 @@ class Asset
      *        bool   $data['footer']  → attach in footer (optional-scripts)
      *        array  $data['attr']    → attribute        (optional-scripts)
      *
-     * @return boolean
+     * @return bool
      */
     public static function add($type, $data = [])
     {
@@ -122,9 +119,9 @@ class Asset
         self::lookIfProcessFiles('style', 'header');
 
         $template = self::$templates['style'];
-        $styles   = self::$data['style']['header'];
+        $styles = self::$data['style']['header'];
 
-        foreach ($styles as $key => $value) {
+        foreach ($styles as $value) {
             $output .= sprintf(
                 $template,
                 $value['url']
@@ -133,7 +130,7 @@ class Asset
 
         self::$data['style']['header'] = [];
 
-        return !empty($output) ? $output : false;
+        return ! empty($output) ? $output : false;
     }
 
     /**
@@ -151,9 +148,9 @@ class Asset
         self::lookIfProcessFiles('script', $place);
 
         $template = self::$templates['script'];
-        $scripts  = self::$data['script'][$place];
+        $scripts = self::$data['script'][$place];
 
-        foreach ($scripts as $key => $value) {
+        foreach ($scripts as $value) {
             $output .= sprintf(
                 $template,
                 $value['attr'],
@@ -163,7 +160,7 @@ class Asset
 
         self::$data['script'][$place] = [];
 
-        return !empty($output) ? $output : false;
+        return ! empty($output) ? $output : false;
     }
 
     /**
@@ -174,7 +171,7 @@ class Asset
      * @param string $type → script|style
      * @param string $name → script or style name
      *
-     * @return boolean
+     * @return bool
      */
     public static function isAdded($type, $name)
     {
@@ -183,6 +180,7 @@ class Asset
         } elseif (isset(self::$data[$type]['footer'][$name])) {
             return true;
         }
+
         return false;
     }
 
@@ -191,16 +189,16 @@ class Asset
      *
      * @since 1.1.5
      *
-     * @param string  $uniqueID → unique identifier for unified file
-     * @param mixed   $params   → path urls
-     * @param boolean $minify   → minimize file content
+     * @param string $uniqueID → unique identifier for unified file
+     * @param mixed  $params   → path urls
+     * @param bool   $minify   → minimize file content
      *
-     * @return boolean true
+     * @return bool true
      */
     public static function unify($uniqueID, $params, $minify = false)
     {
-        self::$id     = $uniqueID;
-        self::$unify  = $params;
+        self::$id = $uniqueID;
+        self::$unify = $params;
         self::$minify = $minify;
 
         return true;
@@ -214,17 +212,20 @@ class Asset
      * @param string $type → script|style
      * @param string $name → script or style name
      *
-     * @return boolean true
+     * @return bool true
      */
     public static function remove($type, $name)
     {
         if (isset(self::$data[$type]['header'][$name])) {
             unset(self::$data[$type]['header'][$name]);
+
             return true;
         } elseif (isset(self::$data[$type]['footer'][$name])) {
             unset(self::$data[$type]['footer'][$name]);
+
             return true;
         }
+
         return false;
     }
 
@@ -236,11 +237,11 @@ class Asset
      * @param string $type → script|style
      * @param array  $data → settings
      *
-     * @return boolean
+     * @return bool
      */
     protected static function setParams($type, $data)
     {
-        if (!isset($data['name'], $data['url'])) {
+        if (! isset($data['name'], $data['url'])) {
             return false;
         }
 
@@ -248,7 +249,7 @@ class Asset
             $data['attr'] = isset($data['attr']) ? " {$data['attr']}" : '';
         }
 
-        $data['version'] = isset($data['version']) ? $data['version']   : '0';
+        $data['version'] = isset($data['version']) ? $data['version'] : '0';
 
         $place = (isset($data['footer']) && $data['footer']) ? 'F' : 'H';
 
@@ -267,7 +268,7 @@ class Asset
      * @param string $type  → script|style
      * @param string $place → header|footer
      *
-     * @return boolean true
+     * @return bool true
      */
     protected static function lookIfProcessFiles($type, $place)
     {
@@ -292,14 +293,14 @@ class Asset
     {
         self::getProcessedFiles();
 
-        $params['type']   = $type;
-        $params['place']  = $place;
+        $params['type'] = $type;
+        $params['place'] = $place;
         $params['routes'] = self::getRoutesToFolder($type);
 
         foreach (self::$data[$type][$place] as $id => $file) {
             $path = self::getPathFromUrl($file['url']);
 
-            $params['urls'][$id]  = $file['url'];
+            $params['urls'][$id] = $file['url'];
             $params['files'][$id] = basename($file['url']);
             $params['paths'][$id] = $path;
 
@@ -347,8 +348,6 @@ class Asset
      * Obtain information from processed files.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     protected static function getProcessedFiles()
     {
@@ -376,17 +375,19 @@ class Asset
      *
      * @param string $filepath → path of the file
      *
-     * @return boolean
+     * @return bool
      */
     protected static function isModifiedFile($filepath)
     {
         $actual = filemtime($filepath);
-        $last   = isset(self::$files[$filepath]) ? self::$files[$filepath] : 0;
+        $last = isset(self::$files[$filepath]) ? self::$files[$filepath] : 0;
 
         if ($actual !== $last) {
             self::$files[$filepath] = $actual;
+
             return self::$changes = true;
         }
+
         return false;
     }
 
@@ -398,7 +399,7 @@ class Asset
      * @param string $url  → external url
      * @param string $path → internal file path
      *
-     * @return boolean
+     * @return bool
      */
     protected static function isModifiedHash($url, $path)
     {
@@ -407,6 +408,7 @@ class Asset
                 return self::$changes = true;
             }
         }
+
         return false;
     }
 
@@ -417,11 +419,11 @@ class Asset
      *
      * @param string $url → file url
      *
-     * @return boolean
+     * @return bool
      */
     protected static function isExternalUrl($url)
     {
-        return (strpos($url, $_SERVER['SERVER_NAME']) === false);
+        return strpos($url, $_SERVER['SERVER_NAME']) === false;
     }
 
     /**
@@ -432,22 +434,22 @@ class Asset
      * @param array  $params → paths and urls of files to unify
      * @param string $data   → initial string
      *
-     * @return boolean true
+     * @return bool true
      */
     protected static function unifyFiles($params, $data = '')
     {
-        $type    = $params['type'];
-        $place   = $params['place'];
-        $routes  = $params['routes'];
-        $ext     = ($type == 'style') ? '.css' : '.js';
-        $hash    = sha1(implode('', $params['files']));
+        $type = $params['type'];
+        $place = $params['place'];
+        $routes = $params['routes'];
+        $ext = ($type == 'style') ? '.css' : '.js';
+        $hash = sha1(implode('', $params['files']));
         $minFile = $routes['path'] . $hash . $ext;
 
-        if (!is_file($minFile) || self::$changes == true) {
+        if (! is_file($minFile) || self::$changes == true) {
             foreach ($params['paths'] as $id => $path) {
                 if (isset($params['urls'][$id])) {
-                    $url   = $params['urls'][$id];
-                    $path  = $routes['path'] . $params['files'][$id];
+                    $url = $params['urls'][$id];
+                    $path = $routes['path'] . $params['files'][$id];
                     $data .= self::saveExternalFile($url, $path);
                 }
                 $data .= file_get_contents($path);
@@ -494,7 +496,7 @@ class Asset
      */
     protected static function compressFiles($content)
     {
-        $var = array("\r\n", "\r", "\n", "\t", '  ', '    ', '    ');
+        $var = ["\r\n", "\r", "\n", "\t", '  ', '    ', '    '];
 
         $content = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $content);
 
@@ -514,7 +516,7 @@ class Asset
      * @param string $path → internal file path
      * @param string $data → file content
      *
-     * @return boolean
+     * @return bool
      */
     protected static function saveFile($path, $data)
     {
@@ -530,13 +532,13 @@ class Asset
      *
      * @param string $url → path of the file
      *
-     * @return boolean
+     * @return bool
      */
     protected static function createDirectoryFromFile($file)
     {
         $path = dirname($file);
 
-        if (!is_dir($path)) {
+        if (! is_dir($path)) {
             return mkdir($path, 0777, true);
         }
 
@@ -547,8 +549,6 @@ class Asset
      * Set information from processed files.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     protected static function setProcessedFiles()
     {
@@ -568,14 +568,14 @@ class Asset
      * @param string $url       → path url
      * @param string $extension → file extension
      *
-     * @return boolean true
+     * @return bool true
      */
     protected static function setNewParams($type, $place, $hash, $url, $ext)
     {
         $data = [
-            'name'    => self::$id,
-            'url'     => $url . $hash . $ext,
-            'attr'    => self::unifyParams($type, 'attr'),
+            'name' => self::$id,
+            'url' => $url . $hash . $ext,
+            'attr' => self::unifyParams($type, 'attr'),
             'version' => self::unifyParams($type, 'version', '1.0.0'),
         ];
 
@@ -607,18 +607,19 @@ class Asset
             case 'attr':
             case 'footer':
             case 'version':
-                foreach ($data as $key => $value) {
+                foreach ($data as $value) {
                     if ($data[0] !== $value) {
                         return $default;
                     }
                 }
                 return (isset($data[0]) && $data[0]) ? $data[0] : $default;
-
+                
             default:
                 $params = [];
-                foreach ($data as $key => $value) {
+                foreach ($data as $value) {
                     $params = array_merge($params, $value);
                 }
+
                 return array_unique($params);
         }
     }

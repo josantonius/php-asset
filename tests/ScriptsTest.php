@@ -8,7 +8,6 @@
  * @link      https://github.com/Josantonius/PHP-Asset
  * @since     1.1.5
  */
-
 namespace Josantonius\Asset;
 
 use PHPUnit\Framework\TestCase;
@@ -20,6 +19,13 @@ use PHPUnit\Framework\TestCase;
  */
 final class ScriptsTest extends TestCase
 {
+    /**
+     * Asset instance.
+     *
+     * @var object
+     */
+    protected $Asset;
+
     /**
      * Assets url.
      *
@@ -33,29 +39,41 @@ final class ScriptsTest extends TestCase
      * Set up.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function setUp()
     {
+        parent::setUp();
+
+        $this->Asset = new Asset;
+
         $url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
         $this->assetsUrl = 'https://' . $url;
     }
 
     /**
+     * Check if it is an instance of Asset.
+     *
+     * @since 1.1.6
+     */
+    public function testIsInstanceOfAsset()
+    {
+        $actual = $this->Asset;
+
+        $this->assertInstanceOf('\Josantonius\Asset\Asset', $actual);
+    }
+
+    /**
      * Add script.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddScript()
     {
         $this->assertTrue(
             Asset::add('script', [
                 'name' => 'script-first',
-                'url'  => $this->assetsUrl . 'js/script.js',
+                'url' => $this->assetsUrl . 'js/script.js',
             ])
         );
     }
@@ -64,15 +82,13 @@ final class ScriptsTest extends TestCase
      * Add script with 'defer' attribute.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddScriptWithDeferAttribute()
     {
         $this->assertTrue(
             Asset::add('script', [
                 'name' => 'script-second',
-                'url'  => $this->assetsUrl . 'js/script.js',
+                'url' => $this->assetsUrl . 'js/script.js',
                 'attr' => 'defer',
             ])
         );
@@ -82,15 +98,13 @@ final class ScriptsTest extends TestCase
      * Add script with 'async' attribute.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddScriptWithAsyncAttribute()
     {
         $this->assertTrue(
             Asset::add('script', [
                 'name' => 'script-third',
-                'url'  => $this->assetsUrl . 'js/custom.js',
+                'url' => $this->assetsUrl . 'js/custom.js',
                 'attr' => 'async',
             ])
         );
@@ -100,15 +114,13 @@ final class ScriptsTest extends TestCase
      * Add script in footer.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddScriptInFooter()
     {
         $this->assertTrue(
             Asset::add('script', [
-                'name'   => 'script-fourth',
-                'url'    => $this->assetsUrl . 'js/script.js',
+                'name' => 'script-fourth',
+                'url' => $this->assetsUrl . 'js/script.js',
                 'footer' => true,
             ])
         );
@@ -118,15 +130,13 @@ final class ScriptsTest extends TestCase
      * Add script in header.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddScriptInHeader()
     {
         $this->assertTrue(
             Asset::add('script', [
-                'name'   => 'script-fifth',
-                'url'    => $this->assetsUrl . 'js/custom.js',
+                'name' => 'script-fifth',
+                'url' => $this->assetsUrl . 'js/custom.js',
                 'footer' => false,
             ])
         );
@@ -136,18 +146,16 @@ final class ScriptsTest extends TestCase
      * Add script by adding all options.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddScriptAddingAllParams()
     {
         $this->assertTrue(
             Asset::add('script', [
-                'name'    => 'script-sixth',
-                'url'     => $this->assetsUrl . 'js/script.js',
-                'attr'    => 'defer',
+                'name' => 'script-sixth',
+                'url' => $this->assetsUrl . 'js/script.js',
+                'attr' => 'defer',
                 'version' => '1.1.3',
-                'footer'  => true
+                'footer' => true
             ])
         );
     }
@@ -156,14 +164,12 @@ final class ScriptsTest extends TestCase
      * Add script without specifying a name. [FALSE|ERROR]
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddScriptWithoutName()
     {
         $this->assertFalse(
             Asset::add('script', [
-                'url'  => $this->assetsUrl . 'js/unknown.js',
+                'url' => $this->assetsUrl . 'js/unknown.js',
                 'attr' => 'defer',
             ])
         );
@@ -173,8 +179,6 @@ final class ScriptsTest extends TestCase
      * Add script without specifying a url. [FALSE|ERROR]
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddScriptWithoutUrl()
     {
@@ -190,8 +194,6 @@ final class ScriptsTest extends TestCase
      * Check if the scripts have been added correctly.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testIfScriptsAddedCorrectly()
     {
@@ -224,12 +226,9 @@ final class ScriptsTest extends TestCase
      * Delete added styles.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testRemoveAddedScripts()
     {
-
         $this->assertTrue(
             Asset::remove('script', 'script-first')
         );
@@ -243,8 +242,6 @@ final class ScriptsTest extends TestCase
      * Validation after deletion.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testValidationAfterDeletion()
     {
@@ -261,8 +258,6 @@ final class ScriptsTest extends TestCase
      * Output footer scripts.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testOutputFooterScripts()
     {
@@ -283,8 +278,6 @@ final class ScriptsTest extends TestCase
      * Output header scripts.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testOutputHeaderScripts()
     {
@@ -305,8 +298,6 @@ final class ScriptsTest extends TestCase
      * Output when there are not header scripts loaded.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testOutputWhenNotFooterScriptsLoaded()
     {
@@ -319,8 +310,6 @@ final class ScriptsTest extends TestCase
      * Output when there are not header scripts loaded.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testOutputWhenNotHeaderScriptsLoaded()
     {

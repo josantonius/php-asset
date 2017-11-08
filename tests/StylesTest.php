@@ -8,7 +8,6 @@
  * @link      https://github.com/Josantonius/PHP-Asset
  * @since     1.1.5
  */
-
 namespace Josantonius\Asset;
 
 use PHPUnit\Framework\TestCase;
@@ -20,6 +19,13 @@ use PHPUnit\Framework\TestCase;
  */
 final class StylesTest extends TestCase
 {
+    /**
+     * Asset instance.
+     *
+     * @var object
+     */
+    protected $Asset;
+
     /**
      * Assets url.
      *
@@ -33,29 +39,41 @@ final class StylesTest extends TestCase
      * Set up.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function setUp()
     {
+        parent::setUp();
+
+        $this->Asset = new Asset;
+
         $url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
         $this->assetsUrl = 'https://' . $url;
     }
 
     /**
+     * Check if it is an instance of Asset.
+     *
+     * @since 1.1.6
+     */
+    public function testIsInstanceOfAsset()
+    {
+        $actual = $this->Asset;
+
+        $this->assertInstanceOf('\Josantonius\Asset\Asset', $actual);
+    }
+
+    /**
      * Add style.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddStyle()
     {
         $this->assertTrue(
             Asset::add('style', [
                 'name' => 'style-first',
-                'url'  => $this->assetsUrl . 'css/style.css',
+                'url' => $this->assetsUrl . 'css/style.css',
             ])
         );
     }
@@ -64,15 +82,13 @@ final class StylesTest extends TestCase
      * Add style with version.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddStyleWithVersion()
     {
         $this->assertTrue(
             Asset::add('style', [
-                'name'    => 'style-second',
-                'url'     => $this->assetsUrl . 'css/style.css',
+                'name' => 'style-second',
+                'url' => $this->assetsUrl . 'css/style.css',
                 'version' => '1.0.0'
             ])
         );
@@ -82,15 +98,13 @@ final class StylesTest extends TestCase
      * Add style by adding all options.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddStyleAddingAllParams()
     {
         $this->assertTrue(
             Asset::add('style', [
-                'name'    => 'style-third',
-                'url'     => $this->assetsUrl . 'css/custom.css',
+                'name' => 'style-third',
+                'url' => $this->assetsUrl . 'css/custom.css',
                 'version' => '1.1.3'
             ])
         );
@@ -100,14 +114,12 @@ final class StylesTest extends TestCase
      * Add style without specifying a name. [FALSE|ERROR]
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddStyleWithoutName()
     {
         $this->assertFalse(
             Asset::add('style', [
-                'url'  => $this->assetsUrl . 'css/unknown.css',
+                'url' => $this->assetsUrl . 'css/unknown.css',
                 'attr' => 'defer',
             ])
         );
@@ -117,8 +129,6 @@ final class StylesTest extends TestCase
      * Add style without specifying a url. [FALSE|ERROR]
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testAddStyleWithoutUrl()
     {
@@ -134,8 +144,6 @@ final class StylesTest extends TestCase
      * Check if the styles have been added correctly.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testIfStylesAddedCorrectly()
     {
@@ -156,12 +164,9 @@ final class StylesTest extends TestCase
      * Delete added styles.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testRemoveAddedStyles()
     {
-
         $this->assertTrue(
             Asset::remove('style', 'style-first')
         );
@@ -171,8 +176,6 @@ final class StylesTest extends TestCase
      * Validation after deletion.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testValidationAfterDeletion()
     {
@@ -185,8 +188,6 @@ final class StylesTest extends TestCase
      * Output styles.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testOutputStyles()
     {
@@ -207,8 +208,6 @@ final class StylesTest extends TestCase
      * Output when there are not header styles loaded.
      *
      * @since 1.1.5
-     *
-     * @return void
      */
     public function testOutputWhenNotStylesLoaded()
     {
