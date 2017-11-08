@@ -60,7 +60,7 @@
     },
     "scripts": {
         "phpunit": "vendor/bin/phpunit --colors=always;",
-        "phpcs": "vendor/bin/phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php');",
+        "phpcs": "vendor/bin/phpcs --standard=phpcs.xml $(find . -name '*.php');",
         "phpmd": "vendor/bin/phpmd src,tests text ./phpmd.xml",
         "fix": [
             "vendor/bin/php-cs-fixer fix -v",

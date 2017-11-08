@@ -41,7 +41,7 @@ script:
   - phpunit
   - |
     if [[ "$PHPCS" ]] ; then
-      phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
+      phpcs --standard=phpcs.xml $(find . -name '*.php')
       phpmd src,tests text ./phpmd.xml
     fi
     phpunit --coverage-clover=coverage.xml
