@@ -22,6 +22,8 @@ final class ScriptsTest extends TestCase
     /**
      * Asset instance.
      *
+     * @since 1.1.6
+     *
      * @var object
      */
     protected $Asset;
