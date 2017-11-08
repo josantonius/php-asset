@@ -73,7 +73,7 @@ final class StylesTest extends TestCase
     public function testAddStyle()
     {
         $this->assertTrue(
-            Asset::add('style', [
+            $this->Asset->add('style', [
                 'name' => 'style-first',
                 'url' => $this->assetsUrl . 'css/style.css',
             ])
@@ -88,7 +88,7 @@ final class StylesTest extends TestCase
     public function testAddStyleWithVersion()
     {
         $this->assertTrue(
-            Asset::add('style', [
+            $this->Asset->add('style', [
                 'name' => 'style-second',
                 'url' => $this->assetsUrl . 'css/style.css',
                 'version' => '1.0.0'
@@ -104,7 +104,7 @@ final class StylesTest extends TestCase
     public function testAddStyleAddingAllParams()
     {
         $this->assertTrue(
-            Asset::add('style', [
+            $this->Asset->add('style', [
                 'name' => 'style-third',
                 'url' => $this->assetsUrl . 'css/custom.css',
                 'version' => '1.1.3'
@@ -120,7 +120,7 @@ final class StylesTest extends TestCase
     public function testAddStyleWithoutName()
     {
         $this->assertFalse(
-            Asset::add('style', [
+            $this->Asset->add('style', [
                 'url' => $this->assetsUrl . 'css/unknown.css',
                 'attr' => 'defer',
             ])
@@ -135,7 +135,7 @@ final class StylesTest extends TestCase
     public function testAddStyleWithoutUrl()
     {
         $this->assertFalse(
-            Asset::add('style', [
+            $this->Asset->add('style', [
                 'name' => 'unknown',
                 'attr' => 'defer',
             ])
@@ -150,15 +150,15 @@ final class StylesTest extends TestCase
     public function testIfStylesAddedCorrectly()
     {
         $this->assertTrue(
-            Asset::isAdded('style', 'style-first')
+            $this->Asset->isAdded('style', 'style-first')
         );
 
         $this->assertTrue(
-            Asset::isAdded('style', 'style-second')
+            $this->Asset->isAdded('style', 'style-second')
         );
 
         $this->assertTrue(
-            Asset::isAdded('style', 'style-third')
+            $this->Asset->isAdded('style', 'style-third')
         );
     }
 
@@ -170,7 +170,7 @@ final class StylesTest extends TestCase
     public function testRemoveAddedStyles()
     {
         $this->assertTrue(
-            Asset::remove('style', 'style-first')
+            $this->Asset->remove('style', 'style-first')
         );
     }
 
@@ -182,7 +182,7 @@ final class StylesTest extends TestCase
     public function testValidationAfterDeletion()
     {
         $this->assertFalse(
-            Asset::isAdded('style', 'style-first')
+            $this->Asset->isAdded('style', 'style-first')
         );
     }
 
@@ -193,7 +193,7 @@ final class StylesTest extends TestCase
      */
     public function testOutputStyles()
     {
-        $styles = Asset::outputStyles();
+        $styles = $this->Asset->outputStyles();
 
         $this->assertContains(
             "<link rel='stylesheet' href='https://jst.com/css/custom.css'>",
@@ -214,7 +214,7 @@ final class StylesTest extends TestCase
     public function testOutputWhenNotStylesLoaded()
     {
         $this->assertFalse(
-            Asset::outputStyles()
+            $this->Asset->outputStyles()
         );
     }
 }
