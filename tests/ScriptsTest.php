@@ -67,7 +67,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('script', [
+            $asset::add('script', [
                 'name' => 'script-first',
                 'url' => $this->assetsUrl . 'js/script.js',
             ])
@@ -82,7 +82,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('script', [
+            $asset::add('script', [
                 'name' => 'script-second',
                 'url' => $this->assetsUrl . 'js/script.js',
                 'attr' => 'defer',
@@ -98,7 +98,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('script', [
+            $asset::add('script', [
                 'name' => 'script-third',
                 'url' => $this->assetsUrl . 'js/custom.js',
                 'attr' => 'async',
@@ -114,7 +114,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('script', [
+            $asset::add('script', [
                 'name' => 'script-fourth',
                 'url' => $this->assetsUrl . 'js/script.js',
                 'footer' => true,
@@ -130,7 +130,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('script', [
+            $asset::add('script', [
                 'name' => 'script-fifth',
                 'url' => $this->assetsUrl . 'js/custom.js',
                 'footer' => false,
@@ -146,7 +146,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('script', [
+            $asset::add('script', [
                 'name' => 'script-sixth',
                 'url' => $this->assetsUrl . 'js/script.js',
                 'attr' => 'defer',
@@ -164,7 +164,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::add('script', [
+            $asset::add('script', [
                 'url' => $this->assetsUrl . 'js/unknown.js',
                 'attr' => 'defer',
             ])
@@ -179,7 +179,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::add('script', [
+            $asset::add('script', [
                 'name' => 'unknown',
                 'attr' => 'defer',
             ])

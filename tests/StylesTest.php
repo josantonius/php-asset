@@ -67,7 +67,7 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('style', [
+            $asset::add('style', [
                 'name' => 'style-first',
                 'url' => $this->assetsUrl . 'css/style.css',
             ])
@@ -82,7 +82,7 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('style', [
+            $asset::add('style', [
                 'name' => 'style-second',
                 'url' => $this->assetsUrl . 'css/style.css',
                 'version' => '1.0.0'
@@ -98,7 +98,7 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::add('style', [
+            $asset::add('style', [
                 'name' => 'style-third',
                 'url' => $this->assetsUrl . 'css/custom.css',
                 'version' => '1.1.3'
@@ -114,7 +114,7 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::add('style', [
+            $asset::add('style', [
                 'url' => $this->assetsUrl . 'css/unknown.css',
                 'attr' => 'defer',
             ])
@@ -129,7 +129,7 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::add('style', [
+            $asset::add('style', [
                 'name' => 'unknown',
                 'attr' => 'defer',
             ])
@@ -144,15 +144,15 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::isAdded('style', 'style-first')
+            $asset::isAdded('style', 'style-first')
         );
 
         $this->assertTrue(
-            $Asset::isAdded('style', 'style-second')
+            $asset::isAdded('style', 'style-second')
         );
 
         $this->assertTrue(
-            $Asset::isAdded('style', 'style-third')
+            $asset::isAdded('style', 'style-third')
         );
     }
 
@@ -164,7 +164,7 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::remove('style', 'style-first')
+            $asset::remove('style', 'style-first')
         );
     }
 
@@ -176,7 +176,7 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::isAdded('style', 'style-first')
+            $asset::isAdded('style', 'style-first')
         );
     }
 
@@ -187,7 +187,7 @@ final class StylesTest extends TestCase
     {
         $asset = $this->Asset;
 
-        $styles = $Asset::outputStyles();
+        $styles = $asset::outputStyles();
 
         $this->assertContains(
             "<link rel='stylesheet' href='https://jst.com/css/custom.css'>",
@@ -208,7 +208,7 @@ final class StylesTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::outputStyles()
+            $asset::outputStyles()
         );
     }
 }
