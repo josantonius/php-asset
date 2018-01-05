@@ -3,7 +3,7 @@
  * PHP library for handling styles and scripts; Add, minify, unify and print.
  *
  * @author    Josantonius <hello@josantonius.com>
- * @copyright 2016 - 2017 (c) Josantonius - PHP-Assets
+ * @copyright 2016 - 2018 (c) Josantonius - PHP-Assets
  * @license   https://opensource.org/licenses/MIT - The MIT License (MIT)
  * @link      https://github.com/Josantonius/PHP-Asset
  * @since     1.0.0
@@ -74,8 +74,6 @@ class Asset
 
     /**
      * Asset templates.
-     *
-     * @since 1.0.0
      *
      * @var array → asset templates
      */

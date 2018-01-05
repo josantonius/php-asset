@@ -3,7 +3,7 @@
  * PHP library for handling styles and scripts: Add, minify, unify and print.
  *
  * @author    Josantonius <hello@josantonius.com>
- * @copyright 2016 - 2017 (c) Josantonius - PHP-Assets
+ * @copyright 2016 - 2018 (c) Josantonius - PHP-Assets
  * @license   https://opensource.org/licenses/MIT - The MIT License (MIT)
  * @link      https://github.com/Josantonius/PHP-Asset
  * @since     1.1.5
@@ -31,16 +31,12 @@ final class StylesTest extends TestCase
     /**
      * Assets url.
      *
-     * @since 1.1.5
-     *
      * @var string
      */
     protected $assetsUrl;
 
     /**
      * Set up.
-     *
-     * @since 1.1.5
      */
     public function setUp()
     {
@@ -58,22 +54,20 @@ final class StylesTest extends TestCase
      *
      * @since 1.1.6
      */
-    public function testIsInstanceOfAsset()
+    public function testIsInstanceOf()
     {
-        $actual = $this->Asset;
-
-        $this->assertInstanceOf('\Josantonius\Asset\Asset', $actual);
+        $this->assertInstanceOf('\Josantonius\Asset\Asset', $this->Asset);
     }
 
     /**
      * Add style.
-     *
-     * @since 1.1.5
      */
     public function testAddStyle()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('style', [
+            $Asset::add('style', [
                 'name' => 'style-first',
                 'url' => $this->assetsUrl . 'css/style.css',
             ])
@@ -82,13 +76,13 @@ final class StylesTest extends TestCase
 
     /**
      * Add style with version.
-     *
-     * @since 1.1.5
      */
     public function testAddStyleWithVersion()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('style', [
+            $Asset::add('style', [
                 'name' => 'style-second',
                 'url' => $this->assetsUrl . 'css/style.css',
                 'version' => '1.0.0'
@@ -98,13 +92,13 @@ final class StylesTest extends TestCase
 
     /**
      * Add style by adding all options.
-     *
-     * @since 1.1.5
      */
     public function testAddStyleAddingAllParams()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('style', [
+            $Asset::add('style', [
                 'name' => 'style-third',
                 'url' => $this->assetsUrl . 'css/custom.css',
                 'version' => '1.1.3'
@@ -114,13 +108,13 @@ final class StylesTest extends TestCase
 
     /**
      * Add style without specifying a name. [FALSE|ERROR]
-     *
-     * @since 1.1.5
      */
     public function testAddStyleWithoutName()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->add('style', [
+            $Asset::add('style', [
                 'url' => $this->assetsUrl . 'css/unknown.css',
                 'attr' => 'defer',
             ])
@@ -129,13 +123,13 @@ final class StylesTest extends TestCase
 
     /**
      * Add style without specifying a url. [FALSE|ERROR]
-     *
-     * @since 1.1.5
      */
     public function testAddStyleWithoutUrl()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->add('style', [
+            $Asset::add('style', [
                 'name' => 'unknown',
                 'attr' => 'defer',
             ])
@@ -144,56 +138,56 @@ final class StylesTest extends TestCase
 
     /**
      * Check if the styles have been added correctly.
-     *
-     * @since 1.1.5
      */
     public function testIfStylesAddedCorrectly()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->isAdded('style', 'style-first')
+            $Asset::isAdded('style', 'style-first')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('style', 'style-second')
+            $Asset::isAdded('style', 'style-second')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('style', 'style-third')
+            $Asset::isAdded('style', 'style-third')
         );
     }
 
     /**
      * Delete added styles.
-     *
-     * @since 1.1.5
      */
     public function testRemoveAddedStyles()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->remove('style', 'style-first')
+            $Asset::remove('style', 'style-first')
         );
     }
 
     /**
      * Validation after deletion.
-     *
-     * @since 1.1.5
      */
     public function testValidationAfterDeletion()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->isAdded('style', 'style-first')
+            $Asset::isAdded('style', 'style-first')
         );
     }
 
     /**
      * Output styles.
-     *
-     * @since 1.1.5
      */
     public function testOutputStyles()
     {
-        $styles = $this->Asset->outputStyles();
+        $Asset = $this->Asset;
+
+        $styles = $Asset::outputStyles();
 
         $this->assertContains(
             "<link rel='stylesheet' href='https://jst.com/css/custom.css'>",
@@ -208,13 +202,13 @@ final class StylesTest extends TestCase
 
     /**
      * Output when there are not header styles loaded.
-     *
-     * @since 1.1.5
      */
     public function testOutputWhenNotStylesLoaded()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->outputStyles()
+            $Asset::outputStyles()
         );
     }
 }

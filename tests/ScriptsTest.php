@@ -3,7 +3,7 @@
  * PHP library for handling styles and scripts: Add, minify, unify and print.
  *
  * @author    Josantonius <hello@josantonius.com>
- * @copyright 2016 - 2017 (c) Josantonius - PHP-Assets
+ * @copyright 2016 - 2018 (c) Josantonius - PHP-Assets
  * @license   https://opensource.org/licenses/MIT - The MIT License (MIT)
  * @link      https://github.com/Josantonius/PHP-Asset
  * @since     1.1.5
@@ -31,16 +31,12 @@ final class ScriptsTest extends TestCase
     /**
      * Assets url.
      *
-     * @since 1.1.5
-     *
      * @var string
      */
     protected $assetsUrl;
 
     /**
      * Set up.
-     *
-     * @since 1.1.5
      */
     public function setUp()
     {
@@ -58,22 +54,20 @@ final class ScriptsTest extends TestCase
      *
      * @since 1.1.6
      */
-    public function testIsInstanceOfAsset()
+    public function testIsInstanceOf()
     {
-        $actual = $this->Asset;
-
-        $this->assertInstanceOf('\Josantonius\Asset\Asset', $actual);
+        $this->assertInstanceOf('\Josantonius\Asset\Asset', $this->Asset);
     }
 
     /**
      * Add script.
-     *
-     * @since 1.1.5
      */
     public function testAddScript()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('script', [
+            $Asset::add('script', [
                 'name' => 'script-first',
                 'url' => $this->assetsUrl . 'js/script.js',
             ])
@@ -82,13 +76,13 @@ final class ScriptsTest extends TestCase
 
     /**
      * Add script with 'defer' attribute.
-     *
-     * @since 1.1.5
      */
     public function testAddScriptWithDeferAttribute()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('script', [
+            $Asset::add('script', [
                 'name' => 'script-second',
                 'url' => $this->assetsUrl . 'js/script.js',
                 'attr' => 'defer',
@@ -98,13 +92,13 @@ final class ScriptsTest extends TestCase
 
     /**
      * Add script with 'async' attribute.
-     *
-     * @since 1.1.5
      */
     public function testAddScriptWithAsyncAttribute()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('script', [
+            $Asset::add('script', [
                 'name' => 'script-third',
                 'url' => $this->assetsUrl . 'js/custom.js',
                 'attr' => 'async',
@@ -114,13 +108,13 @@ final class ScriptsTest extends TestCase
 
     /**
      * Add script in footer.
-     *
-     * @since 1.1.5
      */
     public function testAddScriptInFooter()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('script', [
+            $Asset::add('script', [
                 'name' => 'script-fourth',
                 'url' => $this->assetsUrl . 'js/script.js',
                 'footer' => true,
@@ -130,13 +124,13 @@ final class ScriptsTest extends TestCase
 
     /**
      * Add script in header.
-     *
-     * @since 1.1.5
      */
     public function testAddScriptInHeader()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('script', [
+            $Asset::add('script', [
                 'name' => 'script-fifth',
                 'url' => $this->assetsUrl . 'js/custom.js',
                 'footer' => false,
@@ -146,13 +140,13 @@ final class ScriptsTest extends TestCase
 
     /**
      * Add script by adding all options.
-     *
-     * @since 1.1.5
      */
     public function testAddScriptAddingAllParams()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->add('script', [
+            $Asset::add('script', [
                 'name' => 'script-sixth',
                 'url' => $this->assetsUrl . 'js/script.js',
                 'attr' => 'defer',
@@ -164,13 +158,13 @@ final class ScriptsTest extends TestCase
 
     /**
      * Add script without specifying a name. [FALSE|ERROR]
-     *
-     * @since 1.1.5
      */
     public function testAddScriptWithoutName()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->add('script', [
+            $Asset::add('script', [
                 'url' => $this->assetsUrl . 'js/unknown.js',
                 'attr' => 'defer',
             ])
@@ -179,13 +173,13 @@ final class ScriptsTest extends TestCase
 
     /**
      * Add script without specifying a url. [FALSE|ERROR]
-     *
-     * @since 1.1.5
      */
     public function testAddScriptWithoutUrl()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->add('script', [
+            $Asset::add('script', [
                 'name' => 'unknown',
                 'attr' => 'defer',
             ])
@@ -194,76 +188,76 @@ final class ScriptsTest extends TestCase
 
     /**
      * Check if the scripts have been added correctly.
-     *
-     * @since 1.1.5
      */
     public function testIfScriptsAddedCorrectly()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'script-first')
+            $Asset::isAdded('script', 'script-first')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'script-second')
+            $Asset::isAdded('script', 'script-second')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'script-third')
+            $Asset::isAdded('script', 'script-third')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'script-fourth')
+            $Asset::isAdded('script', 'script-fourth')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'script-fifth')
+            $Asset::isAdded('script', 'script-fifth')
         );
 
         $this->assertTrue(
-            $this->Asset->isAdded('script', 'script-sixth')
+            $Asset::isAdded('script', 'script-sixth')
         );
     }
 
     /**
      * Delete added styles.
-     *
-     * @since 1.1.5
      */
     public function testRemoveAddedScripts()
     {
+        $Asset = $this->Asset;
+
         $this->assertTrue(
-            $this->Asset->remove('script', 'script-first')
+            $Asset::remove('script', 'script-first')
         );
 
         $this->assertTrue(
-            $this->Asset->remove('script', 'script-second')
+            $Asset::remove('script', 'script-second')
         );
     }
 
     /**
      * Validation after deletion.
-     *
-     * @since 1.1.5
      */
     public function testValidationAfterDeletion()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->isAdded('script', 'script-first')
+            $Asset::isAdded('script', 'script-first')
         );
 
         $this->assertFalse(
-            $this->Asset->isAdded('script', 'script-second')
+            $Asset::isAdded('script', 'script-second')
         );
     }
 
     /**
      * Output footer scripts.
-     *
-     * @since 1.1.5
      */
     public function testOutputFooterScripts()
     {
-        $scripts = $this->Asset->outputScripts('footer');
+        $Asset = $this->Asset;
+
+        $scripts = $Asset::outputScripts('footer');
 
         $this->assertContains(
             "<script src='https://jst.com/js/script.js'></script>",
@@ -278,12 +272,12 @@ final class ScriptsTest extends TestCase
 
     /**
      * Output header scripts.
-     *
-     * @since 1.1.5
      */
     public function testOutputHeaderScripts()
     {
-        $scripts = $this->Asset->outputScripts('header');
+        $Asset = $this->Asset;
+
+        $scripts = $Asset::outputScripts('header');
 
         $this->assertContains(
             "<script src='https://jst.com/js/custom.js'></script>",
@@ -298,25 +292,25 @@ final class ScriptsTest extends TestCase
 
     /**
      * Output when there are not header scripts loaded.
-     *
-     * @since 1.1.5
      */
     public function testOutputWhenNotFooterScriptsLoaded()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->outputScripts('footer')
+            $Asset::outputScripts('footer')
         );
     }
 
     /**
      * Output when there are not header scripts loaded.
-     *
-     * @since 1.1.5
      */
     public function testOutputWhenNotHeaderScriptsLoaded()
     {
+        $Asset = $this->Asset;
+
         $this->assertFalse(
-            $this->Asset->outputScripts('header')
+            $Asset::outputScripts('header')
         );
     }
 }

@@ -8,4 +8,5 @@ phpmd.xml export-ignore
 .travis.yml export-ignore
 .editorconfig export-ignore
 .gitattributes export-ignore
-.gitignore export-ignore
+.php_cs.dist export-ignore
+CONDUCT.md export-ignore
