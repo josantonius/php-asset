@@ -64,7 +64,7 @@ final class ScriptsTest extends TestCase
      */
     public function testAddScript()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('script', [
@@ -79,7 +79,7 @@ final class ScriptsTest extends TestCase
      */
     public function testAddScriptWithDeferAttribute()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('script', [
@@ -95,7 +95,7 @@ final class ScriptsTest extends TestCase
      */
     public function testAddScriptWithAsyncAttribute()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('script', [
@@ -111,7 +111,7 @@ final class ScriptsTest extends TestCase
      */
     public function testAddScriptInFooter()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('script', [
@@ -127,7 +127,7 @@ final class ScriptsTest extends TestCase
      */
     public function testAddScriptInHeader()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('script', [
@@ -143,7 +143,7 @@ final class ScriptsTest extends TestCase
      */
     public function testAddScriptAddingAllParams()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('script', [
@@ -161,7 +161,7 @@ final class ScriptsTest extends TestCase
      */
     public function testAddScriptWithoutName()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::add('script', [
@@ -176,7 +176,7 @@ final class ScriptsTest extends TestCase
      */
     public function testAddScriptWithoutUrl()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::add('script', [
@@ -191,7 +191,7 @@ final class ScriptsTest extends TestCase
      */
     public function testIfScriptsAddedCorrectly()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::isAdded('script', 'script-first')
@@ -223,7 +223,7 @@ final class ScriptsTest extends TestCase
      */
     public function testRemoveAddedScripts()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::remove('script', 'script-first')
@@ -239,7 +239,7 @@ final class ScriptsTest extends TestCase
      */
     public function testValidationAfterDeletion()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::isAdded('script', 'script-first')
@@ -255,7 +255,7 @@ final class ScriptsTest extends TestCase
      */
     public function testOutputFooterScripts()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $scripts = $Asset::outputScripts('footer');
 
@@ -275,7 +275,7 @@ final class ScriptsTest extends TestCase
      */
     public function testOutputHeaderScripts()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $scripts = $Asset::outputScripts('header');
 
@@ -295,7 +295,7 @@ final class ScriptsTest extends TestCase
      */
     public function testOutputWhenNotFooterScriptsLoaded()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::outputScripts('footer')
@@ -307,7 +307,7 @@ final class ScriptsTest extends TestCase
      */
     public function testOutputWhenNotHeaderScriptsLoaded()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::outputScripts('header')

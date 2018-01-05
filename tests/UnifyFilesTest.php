@@ -73,7 +73,7 @@ final class UnifyFilesTest extends TestCase
      */
     public function testUnify()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::unify('UniqueID', $this->assetsUrl . 'min/')
@@ -85,7 +85,7 @@ final class UnifyFilesTest extends TestCase
      */
     public function testUnifySpecifyingDifferentUrlPaths()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::unify('UniqueID', [
@@ -100,7 +100,7 @@ final class UnifyFilesTest extends TestCase
      */
     public function testUnifyAndMinify()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::unify('UniqueID', $this->assetsUrl . 'min/', true)
@@ -112,7 +112,7 @@ final class UnifyFilesTest extends TestCase
      */
     public function testUnifyAndMinifySpecifyingDifferentUrlPaths()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::unify('UniqueID', [
@@ -127,7 +127,7 @@ final class UnifyFilesTest extends TestCase
      */
     public function testAddStylesAndScripts()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('style', [
@@ -186,7 +186,7 @@ final class UnifyFilesTest extends TestCase
      */
     public function testIfStylesAndScriptsAddedCorrectly()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::isAdded('style', 'CustomStyle')
@@ -218,7 +218,7 @@ final class UnifyFilesTest extends TestCase
      */
     public function testOutputStylesAndScripts()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $styleOne = 'custom.css';
         $styleTwo = 'style.css';
@@ -251,7 +251,7 @@ final class UnifyFilesTest extends TestCase
      */
     public function testIfUnifiedFilesWasCreated()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $styleOne = 'custom.css';
         $styleTwo = 'style.css';

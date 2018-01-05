@@ -64,7 +64,7 @@ final class StylesTest extends TestCase
      */
     public function testAddStyle()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('style', [
@@ -79,7 +79,7 @@ final class StylesTest extends TestCase
      */
     public function testAddStyleWithVersion()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('style', [
@@ -95,7 +95,7 @@ final class StylesTest extends TestCase
      */
     public function testAddStyleAddingAllParams()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::add('style', [
@@ -111,7 +111,7 @@ final class StylesTest extends TestCase
      */
     public function testAddStyleWithoutName()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::add('style', [
@@ -126,7 +126,7 @@ final class StylesTest extends TestCase
      */
     public function testAddStyleWithoutUrl()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::add('style', [
@@ -141,7 +141,7 @@ final class StylesTest extends TestCase
      */
     public function testIfStylesAddedCorrectly()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::isAdded('style', 'style-first')
@@ -161,7 +161,7 @@ final class StylesTest extends TestCase
      */
     public function testRemoveAddedStyles()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertTrue(
             $Asset::remove('style', 'style-first')
@@ -173,7 +173,7 @@ final class StylesTest extends TestCase
      */
     public function testValidationAfterDeletion()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::isAdded('style', 'style-first')
@@ -185,7 +185,7 @@ final class StylesTest extends TestCase
      */
     public function testOutputStyles()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $styles = $Asset::outputStyles();
 
@@ -205,7 +205,7 @@ final class StylesTest extends TestCase
      */
     public function testOutputWhenNotStylesLoaded()
     {
-        $Asset = $this->Asset;
+        $asset = $this->Asset;
 
         $this->assertFalse(
             $Asset::outputStyles()
