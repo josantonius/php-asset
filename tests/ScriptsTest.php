@@ -194,27 +194,27 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::isAdded('script', 'script-first')
+            $asset::isAdded('script', 'script-first')
         );
 
         $this->assertTrue(
-            $Asset::isAdded('script', 'script-second')
+            $asset::isAdded('script', 'script-second')
         );
 
         $this->assertTrue(
-            $Asset::isAdded('script', 'script-third')
+            $asset::isAdded('script', 'script-third')
         );
 
         $this->assertTrue(
-            $Asset::isAdded('script', 'script-fourth')
+            $asset::isAdded('script', 'script-fourth')
         );
 
         $this->assertTrue(
-            $Asset::isAdded('script', 'script-fifth')
+            $asset::isAdded('script', 'script-fifth')
         );
 
         $this->assertTrue(
-            $Asset::isAdded('script', 'script-sixth')
+            $asset::isAdded('script', 'script-sixth')
         );
     }
 
@@ -226,11 +226,11 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertTrue(
-            $Asset::remove('script', 'script-first')
+            $asset::remove('script', 'script-first')
         );
 
         $this->assertTrue(
-            $Asset::remove('script', 'script-second')
+            $asset::remove('script', 'script-second')
         );
     }
 
@@ -242,11 +242,11 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::isAdded('script', 'script-first')
+            $asset::isAdded('script', 'script-first')
         );
 
         $this->assertFalse(
-            $Asset::isAdded('script', 'script-second')
+            $asset::isAdded('script', 'script-second')
         );
     }
 
@@ -257,7 +257,7 @@ final class ScriptsTest extends TestCase
     {
         $asset = $this->Asset;
 
-        $scripts = $Asset::outputScripts('footer');
+        $scripts = $asset::outputScripts('footer');
 
         $this->assertContains(
             "<script src='https://jst.com/js/script.js'></script>",
@@ -277,7 +277,7 @@ final class ScriptsTest extends TestCase
     {
         $asset = $this->Asset;
 
-        $scripts = $Asset::outputScripts('header');
+        $scripts = $asset::outputScripts('header');
 
         $this->assertContains(
             "<script src='https://jst.com/js/custom.js'></script>",
@@ -298,7 +298,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::outputScripts('footer')
+            $asset::outputScripts('footer')
         );
     }
 
@@ -310,7 +310,7 @@ final class ScriptsTest extends TestCase
         $asset = $this->Asset;
 
         $this->assertFalse(
-            $Asset::outputScripts('header')
+            $asset::outputScripts('header')
         );
     }
 }

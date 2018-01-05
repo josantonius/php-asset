@@ -251,8 +251,6 @@ final class UnifyFilesTest extends TestCase
      */
     public function testIfUnifiedFilesWasCreated()
     {
-        $asset = $this->Asset;
-
         $styleOne = 'custom.css';
         $styleTwo = 'style.css';
 
