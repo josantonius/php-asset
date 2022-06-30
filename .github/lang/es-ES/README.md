@@ -9,57 +9,57 @@
 [![PSR4](https://img.shields.io/badge/PSR-4-9b59b6.svg)](https://www.php-fig.org/psr/psr-4/)
 [![PSR12](https://img.shields.io/badge/PSR-12-1abc9c.svg)](https://www.php-fig.org/psr/psr-12/)
 
-**Translations**: [Español](.github/lang/es-ES/README.md)
+[English version](README.md)
 
-PHP library for handling HTML links and scripts.
+Biblioteca PHP para el manejo de _links_ y _scripts_ HTML.
 
 ---
 
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Available Methods](#available-methods)
-- [Quick Start](#quick-start)
-- [Usage](#usage)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Métodos disponibles](#métodos-disponibles)
+- [Cómo empezar](#cómo-empezar)
+- [Uso](#uso)
 - [Tests](#tests)
-- [TODO](#todo)
-- [Changelog](#changelog)
-- [Contribution](#contribution)
-- [Sponsor](#Sponsor)
-- [License](#license)
+- [Tareas pendientes](#tareas-pendientes)
+- [Registro de Cambios](#registro-de-cambios)
+- [Contribuir](#contribuir)
+- [Patrocinar](#patrocinar)
+- [Licencia](#licencia)
 
 ---
 
-## Requirements
+## Requisitos
 
-This library is compatible with the PHP versions: 8.1.
+Esta biblioteca es compatible con las versiones de PHP: 8.1.
 
-## Installation
+## Instalación
 
-The preferred way to install this extension is through [Composer](http://getcomposer.org/download/).
+La mejor forma de instalar esta extensión es a través de [Composer](http://getcomposer.org/download/).
 
-To install **PHP Asset library**, simply:
+Para instalar **PHP Asset library**, simplemente escribe:
 
 ```console
 composer require josantonius/asset
 ```
 
-The previous command will only install the necessary files, if you prefer to **download the entire source code** you can use:
+El comando anterior sólo instalará los archivos necesarios, si prefieres **descargar todo el código fuente** puedes utilizar:
 
 ```console
 composer require josantonius/asset --prefer-source
 ```
 
-You can also **clone the complete repository** with Git:
+También puedes **clonar el repositorio** completo con Git:
 
 ```console
 git clone https://github.com/josantonius/php-asset.git
 ```
 
-## Available Methods
+## Métodos disponibles
 
-Available classes and methods in this library:
+Métodos disponibles en esta biblioteca:
 
-### Add body script
+### Agregar _script_ en el _body_
 
 ```php
 new BodyScript(
@@ -76,7 +76,7 @@ new BodyScript(
 );
 ```
 
-### Add head script
+### Agregar _script_ en el _head_
 
 ```php
 new HeadScript(
@@ -93,7 +93,7 @@ new HeadScript(
 );
 ```
 
-### Add link
+### Agregar _link_
 
 ```php
 new Link(
@@ -117,33 +117,33 @@ new Link(
 );
 ```
 
-### Print the added scripts for the body
+### Imprime los _scripts_ añadidos para el _body_
 
 ```php
 $asset->outputBodyScripts();
 ```
 
-**@Return** `string` Added scripts
+**@Return** `string` _Scripts_ añadidos
 
-### Print the added scripts for the head
+### Imprime los _scripts_ añadidos para el _head_
 
 ```php
 $asset->outputHeadScripts();
 ```
 
-**@Return** `string` Added scripts
+**@Return** `string` _Scripts_ añadidos
 
-### Print the added links
+### Imprime los _links_ añadidos
 
 ```php
 $asset->outputLinks();
 ```
 
-**@Return** `string` Added links
+**@Return** `string` _Links_ añadidos
 
-## Quick Start
+## Cómo empezar
 
-### Using objects
+### Utilizando objetos
 
 ```php
 use Josantonius\Asset\Asset;
@@ -158,21 +158,21 @@ new Link(/* ... */);
 $asset = new Asset();
 ```
 
-### Using the facade
+### Utilizando la fachada
 
-Alternatively you can use a facade to access the methods statically:
+Alternativamente puedes utilizar la fachada para acceder a los métodos de manera estática:
 
 ```php
 use Josantonius\Asset\Facades\Asset;
 ```
 
-## Usage
+## Uso
 
-Example of use for this library:
+Ejemplo de uso para esta biblioteca:
 
-### - Add body script
+### - Agregar _script_ en el _body_
 
-[Using objects](#using-objects):
+[Utilizando objetos](#utilizando-objetos):
 
 ```php
 new BodyScript(
@@ -180,7 +180,7 @@ new BodyScript(
 );
 ```
 
-[Using the facade](#using-the-facade):
+[Utilizando la fachada](#utilizando-la-fachada):
 
 ```php
 Asset::addBodyScript(
@@ -189,9 +189,9 @@ Asset::addBodyScript(
 );
 ```
 
-### - Add head script
+### - Agregar _script_ en el _head_
 
-[Using objects](#using-objects):
+[Utilizando objetos](#utilizando-objetos):
 
 ```php
 new HeadScript(
@@ -200,7 +200,7 @@ new HeadScript(
 );
 ```
 
-[Using the facade](#using-the-facade):
+[Utilizando la fachada](#utilizando-la-fachada):
 
 ```php
 Asset::addHeadScript(
@@ -212,9 +212,9 @@ Asset::addHeadScript(
 );
 ```
 
-### - Add link
+### - Agregar _link_
 
-[Using objects](#using-objects):
+[Utilizando objetos](#utilizando-objetos):
 
 ```php
 new Link(
@@ -226,7 +226,7 @@ new Link(
 );
 ```
 
-[Using the facade](#using-the-facade):
+[Utilizando la fachada](#utilizando-la-fachada):
 
 ```php
 Asset::addLink(
@@ -235,51 +235,51 @@ Asset::addLink(
 );
 ```
 
-### - Print the added scripts for the body
+### - Imprimir los _scripts_ añadidos para el _body_
 
-[Using objects](#using-objects):
+[Utilizando objetos](#utilizando-objetos):
 
 ```php
 echo $asset->outputBodyScripts();
 ```
 
-[Using the facade](#using-the-facade):
+[Utilizando la fachada](#utilizando-la-fachada):
 
 ```php
 echo Asset::outputBodyScripts();
 ```
 
-### - Print the added scripts for the head
+### - Imprimir los _scripts_ añadidos para el _head_
 
-[Using objects](#using-objects):
+[Utilizando objetos](#utilizando-objetos):
 
 ```php
 echo $asset->outputHeadScripts();
 ```
 
-[Using the facade](#using-the-facade):
+[Utilizando la fachada](#utilizando-la-fachada):
 
 ```php
 echo Asset::outputHeadScripts();
 ```
 
-### - Print the added links
+### - Imprimir los _links_ añadidos
 
-[Using objects](#using-objects):
+[Utilizando objetos](#utilizando-objetos):
 
 ```php
 echo $asset->outputLinks();
 ```
 
-[Using the facade](#using-the-facade):
+[Utilizando la fachada](#utilizando-la-fachada):
 
 ```php
 echo Asset::outputLinks();
 ```
 
-### - Full example
+### - Ejemplo completo
 
-**Using objects**:
+**Utilizando objetos**:
 
 ```php
 use Josantonius\Asset\Elements\BodyScript;
@@ -312,7 +312,7 @@ $asset = new Asset();
 </html>
 ```
 
-**Using the facade**:
+**Utilizando la fachada**:
 
 ```php
 use Josantonius\Asset\Facades\Asset;
@@ -342,7 +342,7 @@ use Josantonius\Asset\Facades\Asset;
 </html>
 ```
 
-**Result:**
+**Resultado:**
 
 ```html
 <html>
@@ -361,7 +361,7 @@ use Josantonius\Asset\Facades\Asset;
 
 ## Tests
 
-To run [tests](tests) you just need [composer](http://getcomposer.org/download/) and to execute the following:
+Para ejecutar las [pruebas](tests) necesitarás [Composer](http://getcomposer.org/download/) y seguir los siguientes pasos:
 
 ```console
 git clone https://github.com/josantonius/php-asset.git
@@ -375,59 +375,61 @@ cd php-asset
 composer install
 ```
 
-Run unit tests with [PHPUnit](https://phpunit.de/):
+Ejecutar pruebas unitarias con [PHPUnit](https://phpunit.de/):
 
 ```console
 composer phpunit
 ```
 
-Run code standard tests with [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer):
+Ejecutar pruebas de estándares de código con [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer):
 
 ```console
 composer phpcs
 ```
 
-Run [PHP Mess Detector](https://phpmd.org/) tests to detect inconsistencies in code style:
+Ejecutar pruebas con [PHP Mess Detector](https://phpmd.org/) para detectar inconsistencias en el estilo de codificación:
 
 ```console
 composer phpmd
 ```
 
-Run all previous tests:
+Ejecutar todas las pruebas anteriores:
 
 ```console
 composer tests
 ```
 
-## TODO
+## Tareas pendientes
 
-- [ ] Add new feature
-- [ ] Improve tests
-- [ ] Improve documentation
-- [ ] Improve English translation in the README file
-- [ ] Refactor code for disabled code style rules (see [phpmd.xml](phpmd.xml) and [phpcs.xml](phpcs.xml))
-- [ ] Add other HTML elements
-- [ ] Add feature to add code between the `<script>` tags
+- [ ] Añadir nueva funcionalidad
+- [ ] Mejorar pruebas
+- [ ] Mejorar documentación
+- [ ] Mejorar la traducción al inglés en el archivo README
+- [ ] Refactorizar código para las reglas de estilo de código deshabilitadas
+(ver [phpmd.xml](phpmd.xml) y [phpcs.xml](phpcs.xml))
+- [ ] Añadir otros elementos HTML
+- [ ] Añadir la función de agregar código entre las etiquetas `<script>`
 
-## Changelog
+## Registro de Cambios
 
-Detailed changes for each release are documented in the
-[release notes](https://github.com/josantonius/php-asset/releases).
+Los cambios detallados de cada versión se documentan en las
+[notas de la misma](https://github.com/josantonius/php-asset/releases).
 
-## Contribution
+## Contribuir
 
-Please make sure to read the [Contributing Guide](.github/CONTRIBUTING.md), before making a pull
-request, start a discussion or report a issue.
+Por favor, asegúrate de leer la [Guía de contribución](CONTRIBUTING.md) antes de hacer un
+_pull request_, comenzar una discusión o reportar un _issue_.
 
-Thanks to all [contributors](https://github.com/josantonius/php-asset/graphs/contributors)! :heart:
+¡Gracias por [colaborar](https://github.com/josantonius/php-json/graphs/contributors)! :heart:
 
-## Sponsor
+## Patrocinar
 
-If this project helps you to reduce your development time,
-[you can sponsor me](https://github.com/josantonius#sponsor) to support my open source work :blush:
+Si este proyecto te ayuda a reducir el tiempo de desarrollo,
+[puedes patrocinarme](https://github.com/josantonius/lang/es-ES/README.md#patrocinar)
+para apoyar mi trabajo :blush:
 
-## License
+## Licencia
 
-This repository is licensed under the [MIT License](LICENSE).
+Este repositorio tiene una licencia [MIT License](LICENSE).
 
-Copyright © 2016-present, [Josantonius](https://github.com/josantonius#contact)
+Copyright © 2016-actualidad, [Josantonius](https://github.com/josantonius/lang/es-ES/README.md#contacto)
