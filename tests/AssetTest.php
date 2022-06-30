@@ -16,6 +16,7 @@ use Josantonius\Asset\Elements\BodyScript;
 use Josantonius\Asset\Elements\HeadScript;
 use Josantonius\Asset\Elements\Link;
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 
 class AssetTest extends TestCase
 {
@@ -153,11 +154,11 @@ class AssetTest extends TestCase
 
     private function getPrivateProperty(string $property): array
     {
-        $reflection = new \ReflectionClass($this->asset);
+        $reflection = new ReflectionClass($this->asset);
 
-        $reflection_property = $reflection->getProperty($property);
-        $reflection_property->setAccessible(true);
+        $reflectionProperty = $reflection->getProperty($property);
+        $reflectionProperty->setAccessible(true);
 
-        return $reflection_property->getValue($this->asset);
+        return $reflectionProperty->getValue($this->asset);
     }
 }
