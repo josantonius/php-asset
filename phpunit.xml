@@ -1,34 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="true"
-         bootstrap="vendor/autoload.php">
-
-    <php>
-        <server name='SERVER_PROTOCOL' value='HTTP/1.1' />
-        <server name='SERVER_NAME'     value='jst.com/' />
-        <server name='REQUEST_URI'     value='' />
-        <server name='DOCUMENT_ROOT'   value='tests/assets/' />
-        <server name='SERVER_PORT'     value='80' />
-        <server name='HTTP_REFERER'    value='https://www.google.es/' />
-    </php>
-
-    <testsuites>
-        <testsuite name="Test Suite">
-            <directory>tests</directory>
-        </testsuite>
-    </testsuites>
-
-    <filter>
-        <whitelist>
-            <directory>src</directory>
-        </whitelist>
-    </filter>
+<phpunit
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  backupGlobals="false" backupStaticAttributes="false"
+  colors="true"
+  convertErrorsToExceptions="true"
+  convertNoticesToExceptions="true"
+  convertWarningsToExceptions="true"
+  processIsolation="false"
+  stopOnFailure="false"
+  bootstrap="vendor/autoload.php"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage>
+    <include>
+      <directory>src</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="Test Suite">
+      <directory>tests</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>
