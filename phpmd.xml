@@ -23,7 +23,7 @@
     <rule ref="rulesets/codesize.xml/NPathComplexity"/>
     <rule ref="rulesets/codesize.xml/ExcessiveMethodLength"/>
     <rule ref="rulesets/codesize.xml/ExcessiveClassLength"/>
-    <rule ref="rulesets/codesize.xml/ExcessiveParameterList"/>
+    <!--<rule ref="rulesets/codesize.xml/ExcessiveParameterList"/>-->
     <rule ref="rulesets/codesize.xml/ExcessivePublicCount"/>
     <rule ref="rulesets/codesize.xml/TooManyFields"/>
     <rule ref="rulesets/codesize.xml/TooManyMethods"/>
@@ -56,7 +56,11 @@
     <!--Naming Rules-->
     <rule ref="rulesets/naming.xml/LongClassName"/>
     <rule ref="rulesets/naming.xml/ShortClassName"/>
-    <rule ref="rulesets/naming.xml/ShortVariable"/>
+    <rule ref="rulesets/naming.xml/ShortVariable">
+        <properties>
+            <property name="minimum" value="2"/>
+        </properties>
+    </rule>
     <rule ref="rulesets/naming.xml/LongVariable"/>
     <rule ref="rulesets/naming.xml/ShortMethodName"/>
     <rule ref="rulesets/naming.xml/ConstructorWithNameAsEnclosingClass"/>
