@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [v2.0.1](https://github.com/josantonius/php-json/releases/tag/v2.0.1) (2022-07-13)
+
+* Remove unused class in `Josantonius\Asset\Facades\Asset`.
+
+* improve documentation in `README` files.
+
 ## [v2.0.0](https://github.com/josantonius/php-json/releases/tag/v2.0.0) (2022-06-30)
 
 > Version 1.x is considered as deprecated and unsupported.
