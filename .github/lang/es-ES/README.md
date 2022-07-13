@@ -43,7 +43,8 @@ Para instalar **PHP Asset library**, simplemente escribe:
 composer require josantonius/asset
 ```
 
-El comando anterior sólo instalará los archivos necesarios, si prefieres **descargar todo el código fuente** puedes utilizar:
+El comando anterior sólo instalará los archivos necesarios,
+si prefieres **descargar todo el código fuente** puedes utilizar:
 
 ```console
 composer require josantonius/asset --prefer-source
@@ -63,16 +64,16 @@ Métodos disponibles en esta biblioteca:
 
 ```php
 new BodyScript(
-    null|bool   $async = null,
-    null|string $crossorigin = null,
-    null|bool   $defer = null,
-    null|string $fetchpriority = null,
-    null|string $integrity = null,
-    null|bool   $nomodule = null,
-    null|string $nonce = null,
+    null|bool   $async          = null,
+    null|string $crossorigin    = null,
+    null|bool   $defer          = null,
+    null|string $fetchpriority  = null,
+    null|string $integrity      = null,
+    null|bool   $nomodule       = null,
+    null|string $nonce          = null,
     null|string $referrerpolicy = null,
-    null|string $src = null,
-    null|string $type = null
+    null|string $src            = null,
+    null|string $type           = null
 );
 ```
 
@@ -80,16 +81,16 @@ new BodyScript(
 
 ```php
 new HeadScript(
-    null|bool   $async = null,
-    null|string $crossorigin = null,
-    null|bool   $defer = null,
-    null|string $fetchpriority = null,
-    null|string $integrity = null,
-    null|bool   $nomodule = null,
-    null|string $nonce = null,
+    null|bool   $async          = null,
+    null|string $crossorigin    = null,
+    null|bool   $defer          = null,
+    null|string $fetchpriority  = null,
+    null|string $integrity      = null,
+    null|bool   $nomodule       = null,
+    null|string $nonce          = null,
     null|string $referrerpolicy = null,
-    null|string $src = null,
-    null|string $type = null
+    null|string $src            = null,
+    null|string $type           = null
 );
 ```
 
@@ -97,49 +98,43 @@ new HeadScript(
 
 ```php
 new Link(
-    null|string $as = null,
-    null|string $crossorigin = null,
-    null|bool   $disabled = null,
-    null|string $fetchpriority = null,
-    null|string $href = null,
-    null|string $hreflang = null,
-    null|string $imagesizes = null,
-    null|string $imagesrcset = null,
-    null|string $integrity = null,
-    null|string $media = null,
-    null|string $prefetch = null,
+    null|string $as             = null,
+    null|string $crossorigin    = null,
+    null|bool   $disabled       = null,
+    null|string $fetchpriority  = null,
+    null|string $href           = null,
+    null|string $hreflang       = null,
+    null|string $imagesizes     = null,
+    null|string $imagesrcset    = null,
+    null|string $integrity      = null,
+    null|string $media          = null,
+    null|string $prefetch       = null,
     null|string $referrerpolicy = null,
-    null|string $rel = null,
-    null|string $sizes = null,
-    null|string $target = null,
-    null|string $title = null,
-    null|string $type = null,
+    null|string $rel            = null,
+    null|string $sizes          = null,
+    null|string $target         = null,
+    null|string $title          = null,
+    null|string $type           = null,
 );
 ```
 
 ### Imprime los _scripts_ añadidos para el _body_
 
 ```php
-$asset->outputBodyScripts();
+$asset->outputBodyScripts(): string
 ```
-
-**@Return** `string` _Scripts_ añadidos
 
 ### Imprime los _scripts_ añadidos para el _head_
 
 ```php
-$asset->outputHeadScripts();
+$asset->outputHeadScripts(): string
 ```
-
-**@Return** `string` _Scripts_ añadidos
 
 ### Imprime los _links_ añadidos
 
 ```php
-$asset->outputLinks();
+$asset->outputLinks(): string
 ```
-
-**@Return** `string` _Links_ añadidos
 
 ## Cómo empezar
 
@@ -361,7 +356,8 @@ use Josantonius\Asset\Facades\Asset;
 
 ## Tests
 
-Para ejecutar las [pruebas](tests) necesitarás [Composer](http://getcomposer.org/download/) y seguir los siguientes pasos:
+Para ejecutar las [pruebas](tests) necesitarás [Composer](http://getcomposer.org/download/)
+y seguir los siguientes pasos:
 
 ```console
 git clone https://github.com/josantonius/php-asset.git
@@ -387,7 +383,8 @@ Ejecutar pruebas de estándares de código con [PHPCS](https://github.com/squizl
 composer phpcs
 ```
 
-Ejecutar pruebas con [PHP Mess Detector](https://phpmd.org/) para detectar inconsistencias en el estilo de codificación:
+Ejecutar pruebas con [PHP Mess Detector](https://phpmd.org/)
+para detectar inconsistencias en el estilo de codificación:
 
 ```console
 composer phpmd
@@ -420,7 +417,7 @@ Los cambios detallados de cada versión se documentan en las
 Por favor, asegúrate de leer la [Guía de contribución](CONTRIBUTING.md) antes de hacer un
 _pull request_, comenzar una discusión o reportar un _issue_.
 
-¡Gracias por [colaborar](https://github.com/josantonius/php-json/graphs/contributors)! :heart:
+¡Gracias por [colaborar](https://github.com/josantonius/php-asset/graphs/contributors)! :heart:
 
 ## Patrocinar
 
