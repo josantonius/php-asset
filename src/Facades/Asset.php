@@ -15,7 +15,6 @@ namespace Josantonius\Asset\Facades;
 
 use Josantonius\Asset\Elements\BodyScript;
 use Josantonius\Asset\Elements\Link;
-use Josantonius\Asset\Elements\Script;
 use Josantonius\Asset\Elements\HeadScript;
 use Josantonius\Asset\Asset as AssetInstance;
 

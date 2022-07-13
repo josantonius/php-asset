@@ -43,7 +43,8 @@ To install **PHP Asset library**, simply:
 composer require josantonius/asset
 ```
 
-The previous command will only install the necessary files, if you prefer to **download the entire source code** you can use:
+The previous command will only install the necessary files,
+if you prefer to **download the entire source code** you can use:
 
 ```console
 composer require josantonius/asset --prefer-source
@@ -63,16 +64,16 @@ Available classes and methods in this library:
 
 ```php
 new BodyScript(
-    null|bool   $async = null,
-    null|string $crossorigin = null,
-    null|bool   $defer = null,
-    null|string $fetchpriority = null,
-    null|string $integrity = null,
-    null|bool   $nomodule = null,
-    null|string $nonce = null,
+    null|bool   $async          = null,
+    null|string $crossorigin    = null,
+    null|bool   $defer          = null,
+    null|string $fetchpriority  = null,
+    null|string $integrity      = null,
+    null|bool   $nomodule       = null,
+    null|string $nonce          = null,
     null|string $referrerpolicy = null,
-    null|string $src = null,
-    null|string $type = null
+    null|string $src            = null,
+    null|string $type           = null
 );
 ```
 
@@ -80,16 +81,16 @@ new BodyScript(
 
 ```php
 new HeadScript(
-    null|bool   $async = null,
-    null|string $crossorigin = null,
-    null|bool   $defer = null,
-    null|string $fetchpriority = null,
-    null|string $integrity = null,
-    null|bool   $nomodule = null,
-    null|string $nonce = null,
+    null|bool   $async          = null,
+    null|string $crossorigin    = null,
+    null|bool   $defer          = null,
+    null|string $fetchpriority  = null,
+    null|string $integrity      = null,
+    null|bool   $nomodule       = null,
+    null|string $nonce          = null,
     null|string $referrerpolicy = null,
-    null|string $src = null,
-    null|string $type = null
+    null|string $src            = null,
+    null|string $type           = null
 );
 ```
 
@@ -97,49 +98,43 @@ new HeadScript(
 
 ```php
 new Link(
-    null|string $as = null,
-    null|string $crossorigin = null,
-    null|bool   $disabled = null,
-    null|string $fetchpriority = null,
-    null|string $href = null,
-    null|string $hreflang = null,
-    null|string $imagesizes = null,
-    null|string $imagesrcset = null,
-    null|string $integrity = null,
-    null|string $media = null,
-    null|string $prefetch = null,
+    null|string $as             = null,
+    null|string $crossorigin    = null,
+    null|bool   $disabled       = null,
+    null|string $fetchpriority  = null,
+    null|string $href           = null,
+    null|string $hreflang       = null,
+    null|string $imagesizes     = null,
+    null|string $imagesrcset    = null,
+    null|string $integrity      = null,
+    null|string $media          = null,
+    null|string $prefetch       = null,
     null|string $referrerpolicy = null,
-    null|string $rel = null,
-    null|string $sizes = null,
-    null|string $target = null,
-    null|string $title = null,
-    null|string $type = null,
+    null|string $rel            = null,
+    null|string $sizes          = null,
+    null|string $target         = null,
+    null|string $title          = null,
+    null|string $type           = null,
 );
 ```
 
 ### Print the added scripts for the body
 
 ```php
-$asset->outputBodyScripts();
+$asset->outputBodyScripts(): string
 ```
-
-**@Return** `string` Added scripts
 
 ### Print the added scripts for the head
 
 ```php
-$asset->outputHeadScripts();
+$asset->outputHeadScripts(): string
 ```
-
-**@Return** `string` Added scripts
 
 ### Print the added links
 
 ```php
-$asset->outputLinks();
+$asset->outputLinks(): string
 ```
-
-**@Return** `string` Added links
 
 ## Quick Start
 
@@ -361,7 +356,8 @@ use Josantonius\Asset\Facades\Asset;
 
 ## Tests
 
-To run [tests](tests) you just need [composer](http://getcomposer.org/download/) and to execute the following:
+To run [tests](tests) you just need [composer](http://getcomposer.org/download/)
+and to execute the following:
 
 ```console
 git clone https://github.com/josantonius/php-asset.git
