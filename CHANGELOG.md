@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v2.0.2](https://github.com/josantonius/php-json/releases/tag/v2.0.2) (2022-08-10)
+
+* improve documentation in `README` files.
+
 ## [v2.0.1](https://github.com/josantonius/php-json/releases/tag/v2.0.1) (2022-07-13)
 
 * Remove unused class in `Josantonius\Asset\Facades\Asset`.
