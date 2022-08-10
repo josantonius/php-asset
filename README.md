@@ -17,8 +17,12 @@ PHP library for handling HTML links and scripts.
 
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Available Methods](#available-methods)
-- [Quick Start](#quick-start)
+- [Available Classes](#available-classes)
+  - [Asset Class](#asset-class)
+  - [Asset Facade](#asset-facade)
+  - [BodyScript Class](#bodyscript-class)
+  - [HeadScript Class](#headscript-class)
+  - [Link Class](#link-class)
 - [Usage](#usage)
 - [Tests](#tests)
 - [TODO](#todo)
@@ -56,13 +60,141 @@ You can also **clone the complete repository** with Git:
 git clone https://github.com/josantonius/php-asset.git
 ```
 
-## Available Methods
+## Available Classes
 
-Available classes and methods in this library:
-
-### Add body script
+### Asset Class
 
 ```php
+use Josantonius\Asset\Asset;
+```
+
+Create object:
+
+```php
+$asset = new Asset();
+```
+
+Print the added scripts for the body:
+
+```php
+$asset->outputBodyScripts(): string
+```
+
+Print the added scripts for the head:
+
+```php
+$asset->outputHeadScripts(): string
+```
+
+Print the added links:
+
+```php
+$asset->outputLinks(): string
+```
+
+### Asset Facade
+
+```php
+use Josantonius\Asset\Facades\Asset;
+```
+
+Add body script:
+
+```php
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+ */
+Asset::addBodyScript(
+    null|bool   $async          = null,
+    null|string $crossorigin    = null,
+    null|bool   $defer          = null,
+    null|string $fetchpriority  = null,
+    null|string $integrity      = null,
+    null|bool   $nomodule       = null,
+    null|string $nonce          = null,
+    null|string $referrerpolicy = null,
+    null|string $src            = null,
+    null|string $type           = null
+): BodyScript
+```
+
+Add head script:
+
+```php
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+ */
+Asset::addHeadScript(
+    null|bool   $async          = null,
+    null|string $crossorigin    = null,
+    null|bool   $defer          = null,
+    null|string $fetchpriority  = null,
+    null|string $integrity      = null,
+    null|bool   $nomodule       = null,
+    null|string $nonce          = null,
+    null|string $referrerpolicy = null,
+    null|string $src            = null,
+    null|string $type           = null
+): HeadScript
+```
+
+Add link:
+
+```php
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
+ */
+Asset::addLink(
+    null|string $as             = null,
+    null|string $crossorigin    = null,
+    null|bool   $disabled       = null,
+    null|string $fetchpriority  = null,
+    null|string $href           = null,
+    null|string $hreflang       = null,
+    null|string $imagesizes     = null,
+    null|string $imagesrcset    = null,
+    null|string $integrity      = null,
+    null|string $media          = null,
+    null|string $prefetch       = null,
+    null|string $referrerpolicy = null,
+    null|string $rel            = null,
+    null|string $sizes          = null,
+    null|string $target         = null,
+    null|string $title          = null,
+    null|string $type           = null,
+): Link
+```
+
+Print the added scripts for the body:
+
+```php
+Asset::outputBodyScripts(): string
+```
+
+Print the added scripts for the head:
+
+```php
+Asset::outputHeadScripts(): string
+```
+
+Print the added links:
+
+```php
+Asset::outputLinks(): string
+```
+
+### BodyScript Class
+
+```php
+use Josantonius\Asset\Elements\BodyScript;
+```
+
+Add body script:
+
+```php
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+ */
 new BodyScript(
     null|bool   $async          = null,
     null|string $crossorigin    = null,
@@ -77,9 +209,18 @@ new BodyScript(
 );
 ```
 
-### Add head script
+### HeadScript Class
 
 ```php
+use Josantonius\Asset\Elements\HeadScript;
+```
+
+Add head script:
+
+```php
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+ */
 new HeadScript(
     null|bool   $async          = null,
     null|string $crossorigin    = null,
@@ -94,9 +235,18 @@ new HeadScript(
 );
 ```
 
-### Add link
+### Link Class
 
 ```php
+use Josantonius\Asset\Elements\Link;
+```
+
+Add link:
+
+```php
+/**
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
+ */
 new Link(
     null|string $as             = null,
     null|string $crossorigin    = null,
@@ -118,86 +268,43 @@ new Link(
 );
 ```
 
-### Print the added scripts for the body
-
-```php
-$asset->outputBodyScripts(): string
-```
-
-### Print the added scripts for the head
-
-```php
-$asset->outputHeadScripts(): string
-```
-
-### Print the added links
-
-```php
-$asset->outputLinks(): string
-```
-
-## Quick Start
-
-### Using objects
-
-```php
-use Josantonius\Asset\Asset;
-use Josantonius\Asset\Elements\BodyScript;
-use Josantonius\Asset\Elements\HeadScript;
-use Josantonius\Asset\Elements\Link;
-
-new BodyScript(/* ... */);
-new HeadScript(/* ... */);
-new Link(/* ... */);
-
-$asset = new Asset();
-```
-
-### Using the facade
-
-Alternatively you can use a facade to access the methods statically:
-
-```php
-use Josantonius\Asset\Facades\Asset;
-```
-
 ## Usage
 
 Example of use for this library:
 
-### - Add body script
-
-[Using objects](#using-objects):
+### Add body script
 
 ```php
+use Josantonius\Asset\Elements\BodyScript;
+
 new BodyScript(
     src: 'https://example.com/script.js'
 );
 ```
 
-[Using the facade](#using-the-facade):
-
 ```php
+use Josantonius\Asset\Facades\Asset;
+
 Asset::addBodyScript(
     src: 'script.js',
     type: 'text/javascript'
 );
 ```
 
-### - Add head script
-
-[Using objects](#using-objects):
+### Add head script
 
 ```php
+use Josantonius\Asset\Elements\HeadScript;
+
 new HeadScript(
     src: 'script.js',
     type: 'module'
 );
 ```
 
-[Using the facade](#using-the-facade):
-
 ```php
+use Josantonius\Asset\Facades\Asset;
+
 Asset::addHeadScript(
     crossorigin: 'anonymous',
     defer: true,
@@ -207,11 +314,11 @@ Asset::addHeadScript(
 );
 ```
 
-### - Add link
-
-[Using objects](#using-objects):
+### Add link
 
 ```php
+use Josantonius\Asset\Elements\Link;
+
 new Link(
     crossorigin: 'anonymous',
     href: 'https://example.com/style.css',
@@ -221,65 +328,71 @@ new Link(
 );
 ```
 
-[Using the facade](#using-the-facade):
-
 ```php
+use Josantonius\Asset\Facades\Asset;
+
 Asset::addLink(
     href: 'https://example.com/style.css',
     rel: 'stylesheet'
 );
 ```
 
-### - Print the added scripts for the body
-
-[Using objects](#using-objects):
+### Print the added scripts for the body
 
 ```php
+use Josantonius\Asset\Asset;
+
+$asset = new Asset();
+
 echo $asset->outputBodyScripts();
 ```
 
-[Using the facade](#using-the-facade):
-
 ```php
+use Josantonius\Asset\Facades\Asset;
+
 echo Asset::outputBodyScripts();
 ```
 
-### - Print the added scripts for the head
-
-[Using objects](#using-objects):
+### Print the added scripts for the head
 
 ```php
+use Josantonius\Asset\Asset;
+
+$asset = new Asset();
+
 echo $asset->outputHeadScripts();
 ```
 
-[Using the facade](#using-the-facade):
-
 ```php
+use Josantonius\Asset\Facades\Asset;
+
 echo Asset::outputHeadScripts();
 ```
 
-### - Print the added links
-
-[Using objects](#using-objects):
+### Print the added links
 
 ```php
+use Josantonius\Asset\Asset;
+
+$asset = new Asset();
+
 echo $asset->outputLinks();
 ```
 
-[Using the facade](#using-the-facade):
-
 ```php
+use Josantonius\Asset\Facades\Asset;
+
 echo Asset::outputLinks();
 ```
 
-### - Full example
+### Full example
 
-**Using objects**:
+**`index.php`**
 
 ```php
+use Josantonius\Asset\Elements\Link;
 use Josantonius\Asset\Elements\BodyScript;
 use Josantonius\Asset\Elements\HeadScript;
-use Josantonius\Asset\Elements\Link;
 
 new BodyScript(src: 'foo.js', async: true);
 new BodyScript(src: 'bar.js', type: 'text/javascript');
@@ -290,6 +403,8 @@ new HeadScript(src: 'https://example.com/bar.js', defer: true);
 new Link(href: 'https://example.com/foo.css', rel: 'stylesheet');
 new Link(href: 'https://example.com/bar.css', rel: 'stylesheet', media: 'all');
 ```
+
+**`page.html`**
 
 ```html
 <?php
@@ -307,7 +422,26 @@ $asset = new Asset();
 </html>
 ```
 
-**Using the facade**:
+**Result:**
+
+```html
+<html>
+  <head>
+    <link href="https://example.com/foo.css" rel="stylesheet">
+    <link href="https://example.com/bar.css" rel="stylesheet" media="all">
+    <script src="https://example.com/foo.js" type="module"></script>
+    <script defer src="https://example.com/bar.js"></script>
+  </head>
+  <body>
+    <script async src="foo.js"></script>
+    <script src="bar.js" type="text/javascript"></script>
+  </body>
+</html>
+```
+
+### Full example using the facade
+
+**`index.php`**
 
 ```php
 use Josantonius\Asset\Facades\Asset;
@@ -321,6 +455,8 @@ Asset::addHeadScript(src: 'https://example.com/bar.js', defer: true);
 Asset::addLink(href: 'https://example.com/foo.css', rel: 'stylesheet');
 Asset::addLink(href: 'https://example.com/bar.css', rel: 'stylesheet', media: 'all');
 ```
+
+**`page.html`**
 
 ```html
 <?php
