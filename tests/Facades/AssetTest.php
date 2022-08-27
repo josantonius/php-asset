@@ -1,21 +1,23 @@
 <?php
 
 /*
-* This file is part of https://github.com/josantonius/php-asset repository.
-*
-* (c) Josantonius <hello@josantonius.dev>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of https://github.com/josantonius/php-asset repository.
+ *
+ * (c) Josantonius <hello@josantonius.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+ */
 
 namespace Josantonius\Asset\Tests\Facades;
 
-use Josantonius\Asset\Elements\BodyScript;
-use Josantonius\Asset\Elements\HeadScript;
+use PHPUnit\Framework\TestCase;
 use Josantonius\Asset\Elements\Link;
 use Josantonius\Asset\Facades\Asset;
-use PHPUnit\Framework\TestCase;
+use Josantonius\Asset\Elements\BodyScript;
+use Josantonius\Asset\Elements\HeadScript;
 
 class AssetTest extends TestCase
 {
@@ -28,7 +30,7 @@ class AssetTest extends TestCase
         $this->asset = new Asset();
     }
 
-    public function testShouldAddBodyScript(): void
+    public function test_should_add_body_script(): void
     {
         $this->assertInstanceOf(
             BodyScript::class,
@@ -47,7 +49,7 @@ class AssetTest extends TestCase
         );
     }
 
-    public function testShouldAddHeadScript(): void
+    public function test_should_add_head_script(): void
     {
         $this->assertInstanceOf(
             HeadScript::class,
@@ -66,7 +68,7 @@ class AssetTest extends TestCase
         );
     }
 
-    public function testShouldAddLink(): void
+    public function test_should_add_link(): void
     {
         $this->assertInstanceOf(
             Link::class,
@@ -92,21 +94,21 @@ class AssetTest extends TestCase
         );
     }
 
-    public function testShouldOutputBodyScripts(): void
+    public function test_should_output_body_scripts(): void
     {
         $this->assertIsString(
             $this->asset->outputBodyScripts()
         );
     }
 
-    public function testShouldOutputHeadScripts(): void
+    public function test_should_output_head_scripts(): void
     {
         $this->assertIsString(
             $this->asset->outputHeadScripts()
         );
     }
 
-    public function testShouldOutputLinks(): void
+    public function test_should_output_links(): void
     {
         $this->assertIsString(
             $this->asset->outputLinks()

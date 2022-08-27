@@ -77,19 +77,19 @@ $asset = new Asset();
 Print the added scripts for the body:
 
 ```php
-$asset->outputBodyScripts(): string
+$asset->outputBodyScripts(): string;
 ```
 
 Print the added scripts for the head:
 
 ```php
-$asset->outputHeadScripts(): string
+$asset->outputHeadScripts(): string;
 ```
 
 Print the added links:
 
 ```php
-$asset->outputLinks(): string
+$asset->outputLinks(): string;
 ```
 
 ### Asset Facade
@@ -115,7 +115,7 @@ Asset::addBodyScript(
     null|string $referrerpolicy = null,
     null|string $src            = null,
     null|string $type           = null
-): BodyScript
+): BodyScript;
 ```
 
 Add head script:
@@ -135,7 +135,7 @@ Asset::addHeadScript(
     null|string $referrerpolicy = null,
     null|string $src            = null,
     null|string $type           = null
-): HeadScript
+): HeadScript;
 ```
 
 Add link:
@@ -162,25 +162,25 @@ Asset::addLink(
     null|string $target         = null,
     null|string $title          = null,
     null|string $type           = null,
-): Link
+): Link;
 ```
 
 Print the added scripts for the body:
 
 ```php
-Asset::outputBodyScripts(): string
+Asset::outputBodyScripts(): string;
 ```
 
 Print the added scripts for the head:
 
 ```php
-Asset::outputHeadScripts(): string
+Asset::outputHeadScripts(): string;
 ```
 
 Print the added links:
 
 ```php
-Asset::outputLinks(): string
+Asset::outputLinks(): string;
 ```
 
 ### BodyScript Class

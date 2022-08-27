@@ -1,30 +1,32 @@
 <?php
 
 /*
-* This file is part of https://github.com/josantonius/php-asset repository.
-*
-* (c) Josantonius <hello@josantonius.dev>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of https://github.com/josantonius/php-asset repository.
+ *
+ * (c) Josantonius <hello@josantonius.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+ */
 
 namespace Josantonius\Asset\Tests\Types;
 
-use Josantonius\Asset\Elements\HeadScript;
-use Josantonius\Asset\Elements\BodyScript;
 use PHPUnit\Framework\TestCase;
+use Josantonius\Asset\Elements\BodyScript;
+use Josantonius\Asset\Elements\HeadScript;
 
 class ScriptTest extends TestCase
 {
-    public function testShouldGenerateTagWithoutAttributes(): void
+    public function test_should_generate_tag_without_attributes(): void
     {
         $script = new BodyScript();
 
         $this->assertEquals('<script></script>', $script->getTag());
     }
 
-    public function testShouldGenerateTagWithValidAttributes(): void
+    public function test_should_generate_tag_with_valid_attributes(): void
     {
         $script = new HeadScript(
             async: true,
