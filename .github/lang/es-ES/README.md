@@ -64,39 +64,29 @@ git clone https://github.com/josantonius/php-asset.git
 
 ### Clase Asset
 
-```php
-use Josantonius\Asset\Asset;
-```
-
-Crear objeto:
-
-```php
-$asset = new Asset();
-```
+`Josantonius\Asset\Asset`
 
 Imprime los _scripts_ añadidos para el _body_:
 
 ```php
-$asset->outputBodyScripts(): string;
+public function outputBodyScripts(): string;
 ```
 
 Imprime los _scripts_ añadidos para el _head_:
 
 ```php
-$asset->outputHeadScripts(): string;
+public function outputHeadScripts(): string;
 ```
 
 Imprime los _links_ añadidos:
 
 ```php
-$asset->outputLinks(): string;
+public function outputLinks(): string;
 ```
 
 ### Fachada Asset
 
-```php
-use Josantonius\Asset\Facades\Asset;
-```
+`Josantonius\Asset\Facades\Asset`
 
 Agregar _script_ en el _body_:
 
@@ -104,7 +94,7 @@ Agregar _script_ en el _body_:
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
  */
-Asset::addBodyScript(
+public static function addBodyScript(
     null|bool   $async          = null,
     null|string $crossorigin    = null,
     null|bool   $defer          = null,
@@ -124,7 +114,7 @@ Agregar _script_ en el _head_:
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
  */
-Asset::addHeadScript(
+public static function addHeadScript(
     null|bool   $async          = null,
     null|string $crossorigin    = null,
     null|bool   $defer          = null,
@@ -144,7 +134,7 @@ Agregar _link_:
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
  */
-Asset::addLink(
+public static function addLink(
     null|string $as             = null,
     null|string $crossorigin    = null,
     null|bool   $disabled       = null,
@@ -168,26 +158,24 @@ Asset::addLink(
 Imprime los _scripts_ añadidos para el _body_:
 
 ```php
-Asset::outputBodyScripts(): string;
+public static function outputBodyScripts(): string;
 ```
 
 Imprime los _scripts_ añadidos para el _head_:
 
 ```php
-Asset::outputHeadScripts(): string;
+public static function outputHeadScripts(): string;
 ```
 
 Imprime los _links_ añadidos:
 
 ```php
-Asset::outputLinks(): string;
+public static function outputLinks(): string;
 ```
 
 ### Clase BodyScript
 
-```php
-use Josantonius\Asset\Elements\BodyScript;
-```
+`Josantonius\Asset\Elements\BodyScript`
 
 Agregar _script_ en el _body_:
 
@@ -195,25 +183,23 @@ Agregar _script_ en el _body_:
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
  */
-new BodyScript(
-    null|bool   $async          = null,
-    null|string $crossorigin    = null,
-    null|bool   $defer          = null,
-    null|string $fetchpriority  = null,
-    null|string $integrity      = null,
-    null|bool   $nomodule       = null,
-    null|string $nonce          = null,
-    null|string $referrerpolicy = null,
-    null|string $src            = null,
-    null|string $type           = null
+public function __construct(
+    private null|bool   $async          = null,
+    private null|string $crossorigin    = null,
+    private null|bool   $defer          = null,
+    private null|string $fetchpriority  = null,
+    private null|string $integrity      = null,
+    private null|bool   $nomodule       = null,
+    private null|string $nonce          = null,
+    private null|string $referrerpolicy = null,
+    private null|string $src            = null,
+    private null|string $type           = null
 );
 ```
 
 ### Clase HeadScript
 
-```php
-use Josantonius\Asset\Elements\HeadScript;
-```
+`Josantonius\Asset\Elements\HeadScript`
 
 Agregar _script_ en el _head_:
 
@@ -221,25 +207,23 @@ Agregar _script_ en el _head_:
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
  */
-new HeadScript(
-    null|bool   $async          = null,
-    null|string $crossorigin    = null,
-    null|bool   $defer          = null,
-    null|string $fetchpriority  = null,
-    null|string $integrity      = null,
-    null|bool   $nomodule       = null,
-    null|string $nonce          = null,
-    null|string $referrerpolicy = null,
-    null|string $src            = null,
-    null|string $type           = null
+public function __construct(
+    private null|bool   $async          = null,
+    private null|string $crossorigin    = null,
+    private null|bool   $defer          = null,
+    private null|string $fetchpriority  = null,
+    private null|string $integrity      = null,
+    private null|bool   $nomodule       = null,
+    private null|string $nonce          = null,
+    private null|string $referrerpolicy = null,
+    private null|string $src            = null,
+    private null|string $type           = null
 );
 ```
 
 ### Clase Link
 
-```php
-use Josantonius\Asset\Elements\Link;
-```
+`Josantonius\Asset\Elements\Link`
 
 Agregar _link_:
 
@@ -247,24 +231,24 @@ Agregar _link_:
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
  */
-new Link(
-    null|string $as             = null,
-    null|string $crossorigin    = null,
-    null|bool   $disabled       = null,
-    null|string $fetchpriority  = null,
-    null|string $href           = null,
-    null|string $hreflang       = null,
-    null|string $imagesizes     = null,
-    null|string $imagesrcset    = null,
-    null|string $integrity      = null,
-    null|string $media          = null,
-    null|string $prefetch       = null,
-    null|string $referrerpolicy = null,
-    null|string $rel            = null,
-    null|string $sizes          = null,
-    null|string $target         = null,
-    null|string $title          = null,
-    null|string $type           = null,
+public function __construct(
+    private null|string $as             = null,
+    private null|string $crossorigin    = null,
+    private null|bool   $disabled       = null,
+    private null|string $fetchpriority  = null,
+    private null|string $href           = null,
+    private null|string $hreflang       = null,
+    private null|string $imagesizes     = null,
+    private null|string $imagesrcset    = null,
+    private null|string $integrity      = null,
+    private null|string $media          = null,
+    private null|string $prefetch       = null,
+    private null|string $referrerpolicy = null,
+    private null|string $rel            = null,
+    private null|string $sizes          = null,
+    private null|string $target         = null,
+    private null|string $title          = null,
+    private null|string $type           = null,
 );
 ```
 
