@@ -1,22 +1,24 @@
 <?php
 
 /*
-* This file is part of https://github.com/josantonius/php-asset repository.
-*
-* (c) Josantonius <hello@josantonius.dev>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of https://github.com/josantonius/php-asset repository.
+ *
+ * (c) Josantonius <hello@josantonius.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+ */
 
 namespace Josantonius\Asset\Tests;
 
+use ReflectionClass;
 use Josantonius\Asset\Asset;
+use PHPUnit\Framework\TestCase;
+use Josantonius\Asset\Elements\Link;
 use Josantonius\Asset\Elements\BodyScript;
 use Josantonius\Asset\Elements\HeadScript;
-use Josantonius\Asset\Elements\Link;
-use PHPUnit\Framework\TestCase;
-use ReflectionClass;
 
 class AssetTest extends TestCase
 {
@@ -32,7 +34,7 @@ class AssetTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testShouldAddLinkToCollection(): void
+    public function test_should_add_link_to_collection(): void
     {
         new Link();
 
@@ -46,7 +48,7 @@ class AssetTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testShouldAddMultipleLinkToCollection(): void
+    public function test_should_add_multiple_link_to_collection(): void
     {
         new Link();
         new Link();
@@ -62,7 +64,7 @@ class AssetTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testShouldAddHeadScriptToCollection(): void
+    public function test_should_add_head_script_to_collection(): void
     {
         new HeadScript();
 
@@ -76,7 +78,7 @@ class AssetTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testShouldAddMultipleHeadScriptToCollection(): void
+    public function test_should_add_multiple_head_script_to_collection(): void
     {
         new HeadScript();
         new HeadScript();
@@ -92,7 +94,7 @@ class AssetTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testShouldAddBodyScriptToCollection(): void
+    public function test_should_add_body_script_to_collection(): void
     {
         new BodyScript();
 
@@ -106,7 +108,7 @@ class AssetTest extends TestCase
     /**
      * @runInSeparateProcess
      */
-    public function testShouldAddMultipleBodyScriptToCollection(): void
+    public function test_should_add_multiple_body_script_to_collection(): void
     {
         new BodyScript();
         new BodyScript();
@@ -119,7 +121,7 @@ class AssetTest extends TestCase
         $this->assertInstanceOf(BodyScript::class, $collection[1]);
     }
 
-    public function testShouldOutputBodyScripts(): void
+    public function test_should_output_body_scripts(): void
     {
         new BodyScript();
         new BodyScript();
@@ -130,7 +132,7 @@ class AssetTest extends TestCase
         );
     }
 
-    public function testShouldOutputHeadScripts(): void
+    public function test_should_output_head_scripts(): void
     {
         new HeadScript();
         new HeadScript();
@@ -141,7 +143,7 @@ class AssetTest extends TestCase
         );
     }
 
-    public function testShouldOutputLinks(): void
+    public function test_should_output_links(): void
     {
         new Link();
         new Link();
