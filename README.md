@@ -35,7 +35,9 @@ PHP library for handling HTML links and scripts.
 
 ## Requirements
 
-This library is compatible with the PHP versions: 8.1.
+- Operating System: Linux | Windows.
+
+- PHP versions: 8.1 | 8.2.
 
 ## Installation
 
