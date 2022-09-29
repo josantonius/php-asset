@@ -1,29 +1,31 @@
 <?php
 
 /*
-* This file is part of https://github.com/josantonius/php-asset repository.
-*
-* (c) Josantonius <hello@josantonius.dev>
-*
-* For the full copyright and license information, please view the LICENSE
-* file that was distributed with this source code.
-*/
+ * This file is part of https://github.com/josantonius/php-asset repository.
+ *
+ * (c) Josantonius <hello@josantonius.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
+ */
 
 namespace Josantonius\Asset\Tests\Types;
 
-use Josantonius\Asset\Elements\Link;
 use PHPUnit\Framework\TestCase;
+use Josantonius\Asset\Elements\Link;
 
 class LinkTest extends TestCase
 {
-    public function testShouldGenerateTagWithoutAttributes(): void
+    public function test_should_generate_tag_without_attributes(): void
     {
         $link = new Link();
 
         $this->assertEquals('<link>', $link->getTag());
     }
 
-    public function testShouldGenerateTagWithValidAttributes(): void
+    public function test_should_generate_tag_with_valid_attributes(): void
     {
         $link = new Link(
             as: 'stylesheet',
