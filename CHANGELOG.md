@@ -1,16 +1,30 @@
 # CHANGELOG
 
-## [v2.0.2](https://github.com/josantonius/php-json/releases/tag/v2.0.2) (2022-08-10)
+## [v2.0.3](https://github.com/josantonius/php-asset/releases/tag/v2.0.3) (2022-09-29)
+
+* The notation type in the test function names has been changed from camel to snake case for readability.
+
+* Functions were added to document the methods and avoid confusion.
+
+* Disabled the ´CamelCaseMethodName´ rule in ´phpmd.xml´ to avoid warnings about function names in tests.
+
+* The alignment of the asterisks in the comments has been fixed.
+
+* Tests for Windows have been added.
+
+* Tests for PHP 8.2 have been added.
+
+## [v2.0.2](https://github.com/josantonius/php-asset/releases/tag/v2.0.2) (2022-08-10)
 
 * improve documentation in `README` files.
 
-## [v2.0.1](https://github.com/josantonius/php-json/releases/tag/v2.0.1) (2022-07-13)
+## [v2.0.1](https://github.com/josantonius/php-asset/releases/tag/v2.0.1) (2022-07-13)
 
 * Remove unused class in `Josantonius\Asset\Facades\Asset`.
 
 * improve documentation in `README` files.
 
-## [v2.0.0](https://github.com/josantonius/php-json/releases/tag/v2.0.0) (2022-06-30)
+## [v2.0.0](https://github.com/josantonius/php-asset/releases/tag/v2.0.0) (2022-06-30)
 
 > Version 1.x is considered as deprecated and unsupported.
 > In this version (2.x) the library was completely restructured.
@@ -93,13 +107,13 @@
 
    `.php_cs.dist` file.
 
-## [1.1.7](https://github.com/josantonius/php-json/releases/tag/1.1.0) (2018-01-05)
+## [1.1.7](https://github.com/josantonius/php-asset/releases/tag/1.1.0) (2018-01-05)
 
 * The tests were fixed.
 
 * Changes in documentation.
 
-## [1.1.6](https://github.com/josantonius/php-json/releases/tag/1.1.6) (2017-11-08)
+## [1.1.6](https://github.com/josantonius/php-asset/releases/tag/1.1.6) (2017-11-08)
 
 * Implemented `PHP Mess Detector` to detect inconsistencies in code styles.
 
@@ -107,7 +121,7 @@
 
 * Implemented `PHP Coding Standards Fixer` to organize PHP code automatically according to PSR standards.
 
-## [1.1.5](https://github.com/josantonius/php-json/releases/tag/1.1.5) (2017-10-24)
+## [1.1.5](https://github.com/josantonius/php-asset/releases/tag/1.1.5) (2017-10-24)
 
 * Implemented `PSR-4 autoloader standard` from all library files.
 
@@ -181,7 +195,7 @@
 * Added `Josantonius\Asset\UnifyFilesTest->testOutputStylesAndScripts()` method.
 * Added `Josantonius\Asset\UnifyFilesTest->testIfUnifiedFilesWasCreated()` method.
 
-## [1.1.4](https://github.com/josantonius/php-json/releases/tag/1.1.4) (2017-09-10)
+## [1.1.4](https://github.com/josantonius/php-asset/releases/tag/1.1.4) (2017-09-10)
 
 * Unit tests supported by `PHPUnit` were added.
 
@@ -215,17 +229,17 @@
 * Added `Josantonius\Asset\Test\AssetTest::testAddMultipleJsFileAttr()` method.
 * Added `Josantonius\Asset\Test\AssetTest::testAddMultipleJsFileSameAttr()` method.
 
-## [1.1.3](https://github.com/josantonius/php-json/releases/tag/1.1.3) (2017-07-15)
+## [1.1.3](https://github.com/josantonius/php-asset/releases/tag/1.1.3) (2017-07-15)
 
 * Deleted `Josantonius\Asset\Exception\AssetException` class.
 * Deleted `Josantonius\Asset\Exception\Exceptions` abstract class.
 * Deleted `Josantonius\Asset\Exception\AssetException->__construct()` method.
 
-## [1.1.2](https://github.com/josantonius/php-json/releases/tag/1.1.2) (2017-03-18)
+## [1.1.2](https://github.com/josantonius/php-asset/releases/tag/1.1.2) (2017-03-18)
 
 * Some files were excluded from download and comments and readme files were updated.
 
-## [1.1.1](https://github.com/josantonius/php-json/releases/tag/1.1.1) (2017-02-17)
+## [1.1.1](https://github.com/josantonius/php-asset/releases/tag/1.1.1) (2017-02-17)
 
 * Added `Josantonius\Asset\Tests\AssetTest::testAddOneJsFileAttr()` method.
 * Added `Josantonius\Asset\Tests\AssetTest::testAddMultipleJsFileAttr()` method.
@@ -233,13 +247,14 @@
 * Added `$attr` parameter in `Josantonius\Asset\Asset::resource()` method.
 * Added `$attr` parameter in `Josantonius\Asset\Asset::js()` method.
 
-## [1.1.0](https://github.com/josantonius/php-json/releases/tag/1.1.0) (2017-01-30)
+## [1.1.0](https://github.com/josantonius/php-asset/releases/tag/1.1.0) (2017-01-30)
 
 * Compatible with PHP 5.6 or higher.
 
-## [1.0.0](https://github.com/josantonius/php-json/releases/tag/1.0.0) (2016-12-14)
+## [1.0.0](https://github.com/josantonius/php-asset/releases/tag/1.0.0) (2016-12-14)
 
-* Compatible only with PHP 7.0 or higher. In the next versions, the library will be modified to make it compatible with PHP 5.6 or higher.
+* Compatible only with PHP 7.0 or higher. In the next versions,
+the library will be modified to make it compatible with PHP 5.6 or higher.
 
 * Added `Josantonius\Asset\Asset` class.
 * Added `Josantonius\Asset\Asset::resource()` method.
